@@ -169,19 +169,11 @@ export default function AgentDetailCard({
 
       {/* Launch Team Member Application Button */}
       <div className="detail-launch-action-row">
-        {agent.appUrl || agent.id === 'oee' || agent.id === 3 || agent.id === 'digital-plant-twin' || agent.id === 19 || agent.id === 'energy-tariff' || agent.id === 'unit-cost' || agent.id === 16 || agent.id === 'order-fulfillment' || agent.id === 18 ? (
+        {agent.appUrl ? (
           <button
             className="detail-launch-app-btn"
             onClick={() => {
-              const url =
-                agent.appUrl ||
-                (agent.id === 'oee' || agent.id === 3 ? 'https://oee-performance-agent.vercel.app/' : null) ||
-                (agent.id === 'digital-plant-twin' || agent.id === 19 ? 'https://digital-twin-frontend-c0ji.onrender.com/' : null) ||
-                (agent.id === 'unit-cost' || agent.id === 16 ? 'https://mfc-agent-frontend.vercel.app/home' : null) ||
-                (agent.id === 'energy-tariff' || agent.id === 13 ? 'https://energy-gules.vercel.app/' : null) ||
-                (agent.id === 'order-fulfillment' || agent.id === 18 ? 'https://customer-order-management-two.vercel.app/monitoring' : null) ||
-                agent.frontendUrl;
-              onLaunchApp?.(url, agent.name);
+              onLaunchApp?.(agent.appUrl, agent.name);
             }}
             title={`Launch full-screen ${agent.name} application`}
           >

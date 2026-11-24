@@ -32,10 +32,34 @@ export const sectors = [
     logo: '/assets/logos/supply-chain.png',
     accentColor: '#10b981',
     agents: [
-      { id: 'inventory-buffer', name: 'Inventory Optimization & Buffer System', shortName: 'Inventory', icon: 'Box' },
-      { id: 'supplier-risk', name: 'Supplier Performance & Risk System', shortName: 'Suppliers', icon: 'Building2' },
-      { id: 'sourcing-rfq', name: 'Automated Sourcing & RFQ System', shortName: 'Sourcing', icon: 'Search' },
-      { id: 'logistics-dispatch', name: 'Logistics & Dispatch Tracking System', shortName: 'Logistics', icon: 'Truck' },
+      { 
+        id: 'inventory-buffer', 
+        name: 'Inventory Optimization & Buffer System', 
+        shortName: 'Inventory', 
+        icon: 'Box',
+        appUrl: 'https://inventory-managment-agent.vercel.app/'
+      },
+      { 
+        id: 'supplier-risk', 
+        name: 'Supplier Performance & Risk System', 
+        shortName: 'Suppliers', 
+        icon: 'Building2',
+        appUrl: 'https://supplier-performance-agent-frontend-sable.vercel.app/'
+      },
+      { 
+        id: 'sourcing-rfq', 
+        name: 'Automated Sourcing & RFQ System', 
+        shortName: 'Sourcing', 
+        icon: 'Search',
+        appUrl: 'https://manufacturing-rfq-poc.vercel.app'
+      },
+      { 
+        id: 'logistics-dispatch', 
+        name: 'Logistics & Dispatch Tracking System', 
+        shortName: 'Logistics', 
+        icon: 'Truck',
+        appUrl: 'https://logistics-dispatch-gamma.vercel.app/'
+      },
       { 
         id: 'order-fulfillment', 
         name: 'Customer Order Fulfillment System', 
@@ -52,8 +76,20 @@ export const sectors = [
     logo: '/assets/logos/production.png',
     accentColor: '#8b5cf6',
     agents: [
-      { id: 'production-planning-system', name: 'Production Planning System', shortName: 'Planning', icon: 'CalendarRange' },
-      { id: 'production-monitoring-system', name: 'Production Monitoring System', shortName: 'Monitoring', icon: 'MonitorDot' },
+      { 
+        id: 'production-planning-system', 
+        name: 'Production Planning System', 
+        shortName: 'Planning', 
+        icon: 'CalendarRange',
+        appUrl: 'https://production-planning-khaki.vercel.app/#Overview'
+      },
+      { 
+        id: 'production-monitoring-system', 
+        name: 'Production Monitoring System', 
+        shortName: 'Monitoring', 
+        icon: 'MonitorDot',
+        appUrl: null
+      },
       { 
         id: 'oee', 
         name: 'Equipment Effectiveness (OEE)', 
@@ -77,10 +113,34 @@ export const sectors = [
     logo: '/assets/logos/quality.png',
     accentColor: '#0ea5e9',
     agents: [
-      { id: 'quality-inspection', name: 'Quality Management & Inspection System', shortName: 'Quality', icon: 'BadgeCheck' },
-      { id: 'aoi', name: 'Automated Optical Inspection System', shortName: 'AOI', icon: 'ScanEye' },
-      { id: 'ecn-bom', name: 'Engineering Change & BOM System', shortName: 'ECN & BOM', icon: 'GitBranch' },
-      { id: 'traceability-genealogy', name: 'Product Traceability & Genealogy System', shortName: 'Traceability', icon: 'Route' },
+      { 
+        id: 'quality-inspection', 
+        name: 'Quality Management & Inspection System', 
+        shortName: 'Quality', 
+        icon: 'BadgeCheck',
+        appUrl: 'https://quality-management-agent-app.vercel.app'
+      },
+      { 
+        id: 'aoi', 
+        name: 'Automated Optical Inspection System', 
+        shortName: 'AOI', 
+        icon: 'ScanEye',
+        appUrl: 'https://vision-ai-inspection-agent-app.vercel.app/'
+      },
+      { 
+        id: 'ecn-bom', 
+        name: 'Engineering Change & BOM System', 
+        shortName: 'ECN & BOM', 
+        icon: 'GitBranch',
+        appUrl: 'https://manufacturing-ai-frontend.vercel.app'
+      },
+      { 
+        id: 'traceability-genealogy', 
+        name: 'Product Traceability & Genealogy System', 
+        shortName: 'Traceability', 
+        icon: 'Route',
+        appUrl: 'https://product-traceability-rho.vercel.app/'
+      },
     ],
   },
   {
@@ -90,7 +150,13 @@ export const sectors = [
     logo: '/assets/logos/maintenance.png',
     accentColor: '#f59e0b',
     agents: [
-      { id: 'predictive-maintenance', name: 'Predictive Maintenance System', shortName: 'Predictive Maint.', icon: 'Wrench' },
+      { 
+        id: 'predictive-maintenance', 
+        name: 'Predictive Maintenance System', 
+        shortName: 'Predictive Maint.', 
+        icon: 'Wrench',
+        appUrl: 'https://predictive-maintenance-frontend-kappa.vercel.app/'
+      },
       { 
         id: 'energy-tariff', 
         name: 'Energy Management & Tariff System', 
@@ -98,7 +164,13 @@ export const sectors = [
         icon: 'Zap',
         appUrl: 'https://energy-gules.vercel.app/'
       },
-      { id: 'utilities-facilities', name: 'Utilities & Facilities Management', shortName: 'Utilities', icon: 'Building2' },
+      { 
+        id: 'utilities-facilities', 
+        name: 'Utilities & Facilities Management', 
+        shortName: 'Utilities', 
+        icon: 'Building2',
+        appUrl: null
+      },
     ],
   },
   {
@@ -124,8 +196,20 @@ export const sectors = [
     logo: '/assets/logos/people-safety.png',
     accentColor: '#f43f5e',
     agents: [
-      { id: 'ehs-safety', name: 'EHS & Plant Safety Management System', shortName: 'EHS & Safety', icon: 'HardHat' },
-      { id: 'workforce-skills', name: 'Workforce Allocation & Skills System', shortName: 'Workforce', icon: 'Users' },
+      { 
+        id: 'ehs-safety', 
+        name: 'EHS & Plant Safety Management System', 
+        shortName: 'EHS & Safety', 
+        icon: 'HardHat',
+        appUrl: 'https://frontend-dhob.onrender.com'
+      },
+      { 
+        id: 'workforce-skills', 
+        name: 'Workforce Allocation & Skills System', 
+        shortName: 'Workforce', 
+        icon: 'Users',
+        appUrl: 'https://workforce-management-navy.vercel.app/'
+      },
     ],
   },
 ];

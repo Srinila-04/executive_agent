@@ -34,26 +34,36 @@ export default function Hub({
   const [agentMetrics, setAgentMetrics] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Teammate Agent URLs (stored in localStorage)
+  // Teammate Agent URLs (loaded from backend .env + customizable via localStorage)
   const [customUrls, setCustomUrls] = useState(() => {
     try {
       const saved = localStorage.getItem('teammate_agent_urls');
-      const parsed = saved ? JSON.parse(saved) : {};
-      // Ensure OEE agent points to the latest verified URL
-      if (parsed['oee'] && parsed['oee'] !== 'https://oee-performance-agent.vercel.app/') {
-        parsed['oee'] = 'https://oee-performance-agent.vercel.app/';
-        localStorage.setItem('teammate_agent_urls', JSON.stringify(parsed));
-      }
-      // Ensure Customer Order Fulfillment agent points to live Vercel deployment
-      if (!parsed['order-fulfillment'] || parsed['order-fulfillment'].includes('localhost:3018')) {
-        parsed['order-fulfillment'] = 'https://customer-order-management-two.vercel.app/monitoring';
-        localStorage.setItem('teammate_agent_urls', JSON.stringify(parsed));
-      }
-      return parsed;
+      return saved ? JSON.parse(saved) : {};
     } catch {
       return {};
     }
   });
+
+  // Fetch live agent URLs from backend .env API on mount
+  useEffect(() => {
+    let isCancelled = false;
+    fetch('/api/agents/urls')
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!isCancelled && data && data.urls) {
+          setCustomUrls((prev) => ({
+            ...data.urls,
+            ...prev
+          }));
+        }
+      })
+      .catch(() => {
+        // Fallbacks already in sectors.js
+      });
+    return () => {
+      isCancelled = true;
+    };
+  }, []);
 
   const handleSaveTeammateUrl = useCallback((agentId, url) => {
     setCustomUrls((prev) => {

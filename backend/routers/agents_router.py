@@ -10,6 +10,73 @@ router = APIRouter(prefix="/api/agents", tags=["Agents"])
 class AgentStatusUpdate(BaseModel):
     status: str
 
+# Helper to read teammate agent live URLs from environment variables
+def get_env_agent_urls():
+    """Retrieve all teammate live application URLs configured in backend .env."""
+    return {
+        1: (os.getenv("URL_AGENT_1_PRODUCTION_PLANNING") or "https://production-planning-khaki.vercel.app/#Overview").strip() or None,
+        2: (os.getenv("URL_AGENT_2_PRODUCTION_MONITORING") or "").strip() or None,
+        3: (os.getenv("URL_AGENT_3_OEE_PERFORMANCE") or "https://oee-performance-agent.vercel.app/").strip() or None,
+        4: (os.getenv("URL_AGENT_4_PREDICTIVE_MAINTENANCE") or "https://predictive-maintenance-frontend-kappa.vercel.app/").strip() or None,
+        5: (os.getenv("URL_AGENT_5_QUALITY_MANAGEMENT") or "https://quality-management-agent-app.vercel.app").strip() or None,
+        6: (os.getenv("URL_AGENT_6_VISION_AI_INSPECTION") or "https://vision-ai-inspection-agent-app.vercel.app/").strip() or None,
+        7: (os.getenv("URL_AGENT_7_ENGINEERING_CHANGE") or "https://manufacturing-ai-frontend.vercel.app").strip() or None,
+        8: (os.getenv("URL_AGENT_8_PRODUCT_TRACEABILITY") or "https://product-traceability-rho.vercel.app/").strip() or None,
+        9: (os.getenv("URL_AGENT_9_INVENTORY_MANAGEMENT") or "https://inventory-managment-agent.vercel.app/").strip() or None,
+        10: (os.getenv("URL_AGENT_10_SUPPLIER_PERFORMANCE") or "https://supplier-performance-agent-frontend-sable.vercel.app/").strip() or None,
+        11: (os.getenv("URL_AGENT_11_AGENTIC_RFQ") or "https://manufacturing-rfq-poc.vercel.app").strip() or None,
+        12: (os.getenv("URL_AGENT_12_LOGISTICS_DISPATCH") or "https://logistics-dispatch-gamma.vercel.app/").strip() or None,
+        13: (os.getenv("URL_AGENT_13_ENERGY_MANAGEMENT") or "https://energy-gules.vercel.app/").strip() or None,
+        14: (os.getenv("URL_AGENT_14_EHS_SAFETY") or "https://frontend-dhob.onrender.com").strip() or None,
+        15: (os.getenv("URL_AGENT_15_WORKFORCE_MANAGEMENT") or "https://workforce-management-navy.vercel.app/").strip() or None,
+        16: (os.getenv("URL_AGENT_16_MANUFACTURING_COST") or "https://mfc-agent-frontend.vercel.app/home").strip() or None,
+        17: (os.getenv("URL_AGENT_17_UTILITIES_MANAGEMENT") or "").strip() or None,
+        18: (os.getenv("URL_AGENT_18_CUSTOMER_ORDER") or "https://customer-order-management-two.vercel.app/monitoring").strip() or None,
+        19: (os.getenv("URL_AGENT_19_DIGITAL_TWIN") or "https://digital-twin-frontend-c0ji.onrender.com/").strip() or None,
+    }
+
+AGENT_SLUG_MAP = {
+    1: "production-planning-system",
+    2: "production-monitoring-system",
+    3: "oee",
+    4: "predictive-maintenance",
+    5: "quality-inspection",
+    6: "aoi",
+    7: "ecn-bom",
+    8: "traceability-genealogy",
+    9: "inventory-buffer",
+    10: "supplier-risk",
+    11: "sourcing-rfq",
+    12: "logistics-dispatch",
+    13: "energy-tariff",
+    14: "ehs-safety",
+    15: "workforce-skills",
+    16: "unit-cost",
+    17: "utilities-facilities",
+    18: "order-fulfillment",
+    19: "digital-plant-twin",
+}
+
+@router.get("/urls")
+def get_agent_urls():
+    """Return live teammate application URLs loaded from backend .env, accessible by numeric ID and frontend slug."""
+    id_urls = get_env_agent_urls()
+    slug_urls = {AGENT_SLUG_MAP[aid]: url for aid, url in id_urls.items() if aid in AGENT_SLUG_MAP and url}
+    merged_map = {}
+    for aid, url in id_urls.items():
+        if url:
+            merged_map[str(aid)] = url
+            slug = AGENT_SLUG_MAP.get(aid)
+            if slug:
+                merged_map[slug] = url
+
+    return {
+        "success": True,
+        "urls": merged_map,
+        "by_id": id_urls,
+        "by_slug": slug_urls
+    }
+
 # Base Agent Metadata Structure
 AGENT_METADATA = [
     {
@@ -466,14 +533,17 @@ def get_agents():
     if _AGENTS_CACHE["data"] and (now - _AGENTS_CACHE["ts"] < _AGENTS_CACHE_TTL):
         return _AGENTS_CACHE["data"]
 
+    env_urls = get_env_agent_urls()
     try:
         with get_db() as conn:
             with conn.cursor(cursor_factory=RealDictCursor) as cur:
                 agents = []
                 for meta in AGENT_METADATA:
                     live_metrics = compute_agent_live_metrics(meta["id"], cur=cur)
+                    app_url = env_urls.get(meta["id"]) or meta.get("frontendUrl")
                     agents.append({
                         **meta,
+                        "appUrl": app_url,
                         "status": agent_status_store.get(meta["id"], "running"),
                         "health": "optimal",
                         "metrics": live_metrics,
@@ -488,6 +558,7 @@ def get_agents():
         # Graceful fallback without crashing
         agents = [{
             **meta,
+            "appUrl": env_urls.get(meta["id"]) or meta.get("frontendUrl"),
             "status": agent_status_store.get(meta["id"], "running"),
             "health": "optimal",
             "metrics": {"status": "Optimal", "records": "Neon DB"},
