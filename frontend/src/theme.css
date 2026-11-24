@@ -1,0 +1,155 @@
+:root {
+  /* Brand Palette */
+  --brand-purple: #6f3dba;
+  --brand-blue: #4d8eeb;
+  --brand-orange: #f58a3a;
+  --brand-navy: #1f2f59;
+  --brand-white: #ffffff;
+  --brand-bg: #fcfcfe;
+  --brand-blue-soft: #eaf4ff;
+  --brand-purple-soft: #f3eeff;
+  --brand-peach-soft: #fff2eb;
+  --sky: #7fb0f2;
+  --cyan: #31b7c3;
+
+  /* Typography Colors */
+  --text-primary: #000000;
+  --text-secondary: #111111;
+  --text-muted: #1c1c1c;
+  --on-accent: #ffffff;
+  --muted-ink: #111111;
+
+  /* Surfaces */
+  --page-bg: #f5f7fa;
+  --surface-rgb: 255, 255, 255;
+  --surface-hi: #ffffff;
+  --white: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-border: rgba(31, 47, 89, 0.1);
+  --kg-bg-2: #f8fafd;
+  --kg-bg-3: #f3f6fb;
+  --light: #f4f7fc;
+  --muted-fill: #eef1f6;
+  --node-glass: rgba(255, 255, 255, 0.94);
+  --shadow-rgb: 31, 47, 89;
+  --line-rgb: 31, 47, 89;
+  --paper-rgb: 252, 252, 254;
+
+  /* Graph Depth Ramp (Node Color = Tree Depth) */
+  --depth-0: #e45c72;
+  --depth-1: #6f3dba;
+  --depth-2: #4d8eeb;
+  --depth-3: #f58a3a;
+  --depth-4: #31b7c3;
+  --depth-5: #b88943;
+  --depth-6: #8a63d2;
+  --depth-7: #3e7bc4;
+
+  /* Backdrop Washes */
+  --bx-wash-1: #e2eeff;
+  --bx-wash-2: #ece3ff;
+  --bx-wash-3: #ffe9d9;
+  --bx-wash-4: #ffe1ec;
+  --bx-wash-5: #e4d7ff;
+  --bx-wash-6: #d8e8ff;
+  --ghost-ink: rgba(103, 104, 106, 0.14);
+  --signal-flash: #ffffff;
+
+  /* Drawer / Workspace Panel */
+  --dr-bg: #f7f7fc;
+  --dr-surface: #ffffff;
+  --dr-card: rgba(255, 255, 255, 0.72);
+  --dr-ink: #172554;
+  --dr-ink-2: #64748b;
+  --dr-ink-3: #8b95ad;
+  --dr-purple: #6d3ccb;
+  --dr-purple-soft: #a78bfa;
+  --dr-blue: #4f8ef7;
+  --dr-border: #e2e4f0;
+  --dr-active: #f1edff;
+  --dr-hover: #f5f2ff;
+
+  /* Status Colors */
+  --status-success: #10b981;
+  --status-warning: #f59e0b;
+  --status-danger: #ef4444;
+  --status-info: #3b82f6;
+}
+
+:root[data-theme="dark"] {
+  /* Brand Palette - Dark Mode */
+  --brand-purple: #a684ee;
+  --brand-blue: #78acf5;
+  --brand-orange: #ffab63;
+  --brand-navy: #e7edfa;
+  --brand-white: #e9eefa;
+  --brand-bg: #0b1220;
+  --brand-blue-soft: #142339;
+  --brand-purple-soft: #1e1836;
+  --brand-peach-soft: #2b1d17;
+  --sky: #9cc4f8;
+  --cyan: #4fd3de;
+
+  /* Typography Colors */
+  --text-primary: #f1f5fd;
+  --text-secondary: #b3c0d8;
+  --text-muted: #7d8ba6;
+  --on-accent: #0a1020;
+  --muted-ink: #8494ae;
+
+  /* Surfaces */
+  --page-bg: #090e1a;
+  --surface-rgb: 25, 34, 53;
+  --surface-hi: #26334d;
+  --white: #1b2540;
+  --card-bg: rgba(25, 34, 53, 0.85);
+  --card-border: rgba(214, 224, 244, 0.12);
+  --kg-bg-2: #111a2b;
+  --kg-bg-3: #162034;
+  --light: #162034;
+  --muted-fill: #151e30;
+  --node-glass: rgba(30, 41, 64, 0.94);
+  --shadow-rgb: 0, 0, 0;
+  --line-rgb: 214, 224, 244;
+  --paper-rgb: 9, 14, 26;
+
+  /* Graph Depth Ramp */
+  --depth-0: #ff7d90;
+  --depth-1: #a684ee;
+  --depth-2: #78acf5;
+  --depth-3: #ffab63;
+  --depth-4: #4fd3de;
+  --depth-5: #ddab5f;
+  --depth-6: #b192ec;
+  --depth-7: #6ba2e0;
+
+  /* Backdrop Washes */
+  --bx-wash-1: #13233d;
+  --bx-wash-2: #1b1938;
+  --bx-wash-3: #2c2019;
+  --bx-wash-4: #2a1a28;
+  --bx-wash-5: #1d1a3c;
+  --bx-wash-6: #101f36;
+  --ghost-ink: rgba(190, 205, 235, 0.1);
+  --signal-flash: #dce8ff;
+
+  /* Drawer / Workspace Panel */
+  --dr-bg: #10121b;
+  --dr-surface: #171a27;
+  --dr-card: rgba(23, 26, 39, 0.82);
+  --dr-ink: #f1f5ff;
+  --dr-ink-2: #98a2b8;
+  --dr-ink-3: #78829a;
+  --dr-purple: #9b7cf6;
+  --dr-purple-soft: #b9a4fb;
+  --dr-blue: #4f8ef7;
+  --dr-border: #292d40;
+  --dr-active: #211b38;
+  --dr-hover: #1b1f30;
+
+  /* Status Colors */
+  --status-success: #34d399;
+  --status-warning: #fbbf24;
+  --status-danger: #f87171;
+  --status-info: #60a5fa;
+}

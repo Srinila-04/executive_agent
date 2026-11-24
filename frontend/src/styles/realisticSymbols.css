@@ -1,0 +1,204 @@
+/* ========================================================================= */
+/* REALISTIC CONTINUOUSLY ANIMATED SYMBOLS CSS (CLEAN 24x24 VECTOR)          */
+/* ========================================================================= */
+
+.realistic-symbol-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* 1. REALISTIC RUNNING MACHINE: DUAL GEARS SPINNING CONTINUOUSLY */
+.gear-main-clockwise {
+  animation: gearSpinCW 5s linear infinite;
+  transform-origin: 10px 10px;
+}
+
+@keyframes gearSpinCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.gear-sub-counter {
+  animation: gearSpinCCW 3.33s linear infinite;
+  transform-origin: 17px 16px;
+}
+
+@keyframes gearSpinCCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+/* 2. REALISTIC MOVING SUPPLY CHAIN TRUCK: RUNNING WHEELS & BOUNCING CHASSIS */
+.truck-chassis-group {
+  animation: truckBounce 0.75s ease-in-out infinite alternate;
+  transform-origin: 11px 10px;
+}
+
+@keyframes truckBounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-0.7px); }
+}
+
+.wheel-rear, .wheel-front {
+  animation: wheelRoll 0.9s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes wheelRoll {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.headlight-beam {
+  animation: headlightPulse 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes headlightPulse {
+  0% { filter: drop-shadow(0 0 1px #fef08a); opacity: 0.8; }
+  100% { filter: drop-shadow(0 0 3px #fef08a); opacity: 1; }
+}
+
+/* 3. REALISTIC QUALITY OPTICAL SCANNER: MOVING LASER BEAM */
+.laser-sweep-beam {
+  animation: laserSweepMotion 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes laserSweepMotion {
+  0% { transform: translateY(-2px); }
+  100% { transform: translateY(7px); }
+}
+
+/* 4. REALISTIC PRODUCTION CONVEYOR: MOVING PARTS & STAMPING ARM */
+.conveyor-motion {
+  animation: conveyorDash 0.7s linear infinite;
+}
+
+@keyframes conveyorDash {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -5; }
+}
+
+.conveyor-parts-stream {
+  animation: partsFlow 2.2s linear infinite;
+}
+
+@keyframes partsFlow {
+  0% { transform: translateX(-3px); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateX(6px); opacity: 0; }
+}
+
+.robotic-arm-tool {
+  animation: armStampDown 1.8s ease-in-out infinite;
+}
+
+@keyframes armStampDown {
+  0%, 100% { transform: translateY(0); }
+  45% { transform: translateY(0); }
+  55% { transform: translateY(2.5px); }
+  65% { transform: translateY(0); }
+}
+
+/* 5. REALISTIC ENERGY TURBINE */
+.turbine-blades-spin {
+  animation: turbineSpinCW 3.5s linear infinite;
+  transform-origin: 12px 12px;
+}
+
+@keyframes turbineSpinCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.electric-spark-zap {
+  animation: sparkStrobe 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes sparkStrobe {
+  0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 1px #ffffff); }
+  50% { opacity: 1; filter: drop-shadow(0 0 4px #fde047); }
+}
+
+/* 6. REALISTIC SAFETY RADAR SHIELD */
+.safety-radar-wave {
+  animation: radarPulseAura 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+  transform-origin: 12px 12px;
+}
+
+@keyframes radarPulseAura {
+  0% { transform: scale(0.85); opacity: 1; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+
+.safety-strobe-alert {
+  animation: strobeAlert 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes strobeAlert {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; filter: drop-shadow(0 0 3px #ef4444); }
+}
+
+/* 7. REALISTIC FINANCE / ROI TOKEN & SPARKLES */
+.coin-wobble {
+  animation: coinGleamTilt 3s ease-in-out infinite alternate;
+  transform-origin: 11.5px 12px;
+}
+
+@keyframes coinGleamTilt {
+  0% { transform: rotate(-3deg) scale(0.98); }
+  100% { transform: rotate(3deg) scale(1.02); }
+}
+
+.roi-star-1 {
+  animation: starFloatTwinkle 2s ease-in-out infinite;
+}
+
+@keyframes starFloatTwinkle {
+  0%, 100% { transform: translateY(0) scale(0.85); opacity: 0.7; }
+  50% { transform: translateY(-2px) scale(1.15); opacity: 1; }
+}
+
+/* 8. REALISTIC TELEMETRY DASHBOARD: DANCING FREQUENCY BARS */
+.eq-bar-1 {
+  animation: eqBounce1 0.8s ease-in-out infinite alternate;
+  transform-origin: 6px 14px;
+}
+
+@keyframes eqBounce1 {
+  0% { transform: scaleY(0.4); }
+  100% { transform: scaleY(1.1); }
+}
+
+.eq-bar-2 {
+  animation: eqBounce2 1.1s ease-in-out infinite alternate;
+  transform-origin: 9.5px 14px;
+}
+
+@keyframes eqBounce2 {
+  0% { transform: scaleY(0.9); }
+  100% { transform: scaleY(0.35); }
+}
+
+.eq-bar-3 {
+  animation: eqBounce3 0.75s ease-in-out infinite alternate;
+  transform-origin: 13px 14px;
+}
+
+@keyframes eqBounce3 {
+  0% { transform: scaleY(0.4); }
+  100% { transform: scaleY(1.05); }
+}
+
+.dash-wave-line {
+  animation: waveMotion 1.6s ease-in-out infinite alternate;
+}
+
+@keyframes waveMotion {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-1.2px); }
+}

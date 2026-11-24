@@ -1,0 +1,157 @@
+# =============================================================================
+# Root .gitignore for 20th_agent (Manufacturing 360 Full-Stack Platform)
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# 1. Environment & Sensitive Credentials (CRITICAL - NEVER COMMIT)
+# -----------------------------------------------------------------------------
+.env
+.env.*
+*.env
+*.env.*
+*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+credentials.json
+secrets.json
+*.pem
+*.key
+*.cert
+*.crt
+
+# Always allow .env.example templates to be committed
+!.env.example
+!.env.template
+!*.env.example
+!**/.env.example
+!**/.env.template
+
+# -----------------------------------------------------------------------------
+# 2. Node.js & Frontend Dependencies / Builds
+# -----------------------------------------------------------------------------
+node_modules/
+**/node_modules/
+.npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+dist/
+**/dist/
+build/
+**/build/
+out/
+.vite/
+**/.vite/
+
+# -----------------------------------------------------------------------------
+# 3. Python Bytecode, Caches & Virtual Environments
+# -----------------------------------------------------------------------------
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Packaging & Distribution
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+venv/
+**/venv/
+.venv/
+**/.venv/
+env/
+**/env/
+ENV/
+**/ENV/
+
+# Testing & Coverage
+.pytest_cache/
+**/.pytest_cache/
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+htmlcov/
+**/.mypy_cache/
+**/.ruff_cache/
+
+# -----------------------------------------------------------------------------
+# 4. Databases & Local State
+# -----------------------------------------------------------------------------
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+manufacturing.db
+**/manufacturing.db
+*.dump
+*.sql.gz
+
+# -----------------------------------------------------------------------------
+# 5. Logs & Temporary Files
+# -----------------------------------------------------------------------------
+*.log
+**/*.log
+*.pid
+pid
+backend_err.log
+backend_out.log
+
+# Scratch & Temporary
+scratch/
+**/scratch/
+scratch_*.py
+scratch_*.js
+temp/
+**/temp/
+tmp/
+**/tmp/
+*.tmp
+*.bak
+*.backup
+*.orig
+
+# -----------------------------------------------------------------------------
+# 6. Operating System Artifacts
+# -----------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# -----------------------------------------------------------------------------
+# 7. Editor & IDE Settings
+# -----------------------------------------------------------------------------
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# -----------------------------------------------------------------------------
+# 8. Local AI Assistant Tooling
+# -----------------------------------------------------------------------------
+.gemini/
+**/.gemini/
+.agents/
+**/.agents/

@@ -1,0 +1,501 @@
+/* ==========================================================================
+   IndustryNetwork.css
+   Pixel-accurate visual recreation of the Industry Network visualization
+   - Clean background without grid lines
+   - Even circular diameters across all 5 industries (no giant circle)
+   - Non-overlapping arc geometry (zero override)
+   - Generous top & bottom clearance (no bottom clipping)
+   - 5-second sequential animation and left-side layout
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Page Container & Canvas Structure (Left-Anchored Full-Screen)
+   -------------------------------------------------------------------------- */
+.industry-network-page-container {
+  flex: 1;
+  width: 100%;
+  height: calc(100vh - 52px);
+  min-height: 0;
+  display: flex;
+  justify-content: flex-start; /* Flush to left side */
+  align-items: center;
+  padding: 0 0 0 20px;
+  background: #f4f6fa;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+.industry-network-wrapper {
+  height: 100%;
+  width: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  box-sizing: border-box;
+  min-height: 0;
+  min-width: 0;
+  position: relative;
+}
+
+.industry-network-canvas {
+  position: relative;
+  container-type: inline-size;
+  height: calc(100vh - 64px);
+  max-height: 866px;
+  aspect-ratio: 855 / 866;
+  width: auto;
+  min-height: 0;
+  min-width: 0;
+  background-color: #f1f3f7;
+  overflow: hidden;
+  user-select: none;
+  border-radius: 8px;
+  box-shadow:
+    0 12px 36px rgba(15, 23, 42, 0.08),
+    0 2px 8px rgba(15, 23, 42, 0.04);
+  transition: all 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   Background Layer (No Grid Lines, Soft Glow + Scattered Dots)
+   -------------------------------------------------------------------------- */
+.in-background-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+/* Soft radial wash around central hub */
+.in-radial-glow {
+  position: absolute;
+  top: 50%;
+  left: 17%;
+  width: 75%;
+  height: 75%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.85) 0%, rgba(241, 243, 247, 0) 70%);
+}
+
+/* SVG Scattered Dots constellation */
+.in-dots-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   SVG Connection Lines Layer & Animations
+   -------------------------------------------------------------------------- */
+.in-connections-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.in-connection-line {
+  stroke: #7c3aed;
+  stroke-width: 1.8;
+  stroke-dasharray: 4.5 4.5;
+  stroke-linecap: round;
+  opacity: 0.65;
+  transition: opacity 0.5s ease, stroke-width 0.5s ease;
+}
+
+/* Active flowing connection line */
+.in-connection-line.active {
+  stroke: #9333ea;
+  stroke-width: 2.2;
+  stroke-dasharray: 6 6;
+  opacity: 1;
+  animation: lineDashFlow 1.2s linear infinite;
+}
+
+@keyframes lineDashFlow {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Ambient glow along the active path */
+.in-connection-line-active-glow {
+  stroke: #c084fc;
+  stroke-width: 5;
+  opacity: 0.28;
+  stroke-linecap: round;
+  filter: blur(2px);
+}
+
+.in-connection-node-dot {
+  fill: #7c3aed;
+  filter: drop-shadow(0 1px 2px rgba(124, 58, 237, 0.35));
+  transition: fill 0.5s ease, r 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.in-connection-node-dot.active {
+  fill: #a855f7;
+  filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.8));
+  animation: dotPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% {
+    opacity: 0.85;
+    transform-origin: center;
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(192, 132, 252, 1));
+  }
+}
+
+/* Moving energy packet along active line */
+.in-energy-packet {
+  opacity: 0.95;
+}
+
+/* --------------------------------------------------------------------------
+   Central Network Hub (Left)
+   -------------------------------------------------------------------------- */
+.in-central-hub {
+  position: absolute;
+  left: 16.84%;
+  top: 50.00%;
+  width: 17.78%;
+  height: 17.55%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow:
+    0 10px 30px rgba(76, 52, 134, 0.12),
+    0 4px 14px rgba(0, 0, 0, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 7;
+  transition: transform 0.4s ease;
+}
+
+.in-central-hub-inner {
+  width: 72%;
+  height: 72%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.in-hub-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.in-hub-node {
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.in-hub-node.active {
+  animation: hubNodeActivePulse 2s ease-in-out infinite;
+}
+
+@keyframes hubNodeActivePulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 3px rgba(168, 85, 247, 0.8));
+  }
+  50% {
+    filter: drop-shadow(0 0 7px rgba(168, 85, 247, 1));
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Circular Industry Sections (All EVEN in size, Non-Overlapping Arc)
+   -------------------------------------------------------------------------- */
+.in-industry-circle {
+  position: absolute;
+  /* Uniform Even Diameter across all circles */
+  width: 18.01%;
+  height: 17.78%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  box-shadow:
+    0 10px 28px rgba(15, 23, 42, 0.22),
+    0 4px 10px rgba(15, 23, 42, 0.12);
+  border: 3.5px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition:
+    transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.5s ease,
+    border-color 0.4s ease;
+}
+
+.in-industry-circle:hover {
+  border-color: #e9d5ff;
+}
+
+.in-industry-circle-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.6s ease;
+}
+
+.in-industry-circle:hover .in-industry-circle-bg {
+  transform: scale(1.06);
+}
+
+/* Dark blue-grey atmospheric tint overlay */
+.in-industry-circle-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.28) 0%,
+    rgba(30, 41, 59, 0.38) 100%
+  );
+  border-radius: 50%;
+  transition: background 0.4s ease;
+}
+
+.in-industry-circle.in-circle-active .in-industry-circle-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.16) 0%,
+    rgba(30, 41, 59, 0.26) 100%
+  );
+}
+
+/* Centered White Label - Uniform Across All 5 Circles */
+.in-industry-circle-label {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(9.5px, 1.85cqi, 15px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-align: center;
+  padding: 0 10%;
+  line-height: 1.22;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+  pointer-events: none;
+  transition: text-shadow 0.4s ease;
+}
+
+/* ==========================================================================
+   Sequential 5-Second Active Animation & Movement
+   ========================================================================== */
+.in-industry-circle.in-circle-active {
+  z-index: 10 !important;
+  border-color: #ffffff;
+  border-width: 4px;
+  animation: activeCircleMovement 5s ease-in-out infinite;
+  box-shadow:
+    0 0 0 5px rgba(168, 85, 247, 0.45),
+    0 0 35px rgba(124, 58, 237, 0.45),
+    0 16px 40px rgba(15, 23, 42, 0.35);
+}
+
+.in-industry-circle.in-circle-active .in-industry-circle-label {
+  text-shadow:
+    0 0 14px rgba(255, 255, 255, 0.95),
+    0 2px 8px rgba(0, 0, 0, 0.85);
+}
+
+/* Active breathing and smooth hovering movement */
+@keyframes activeCircleMovement {
+  0% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  25% {
+    transform: translate(-50%, calc(-50% - 4px)) scale(1.06);
+  }
+  50% {
+    transform: translate(-50%, calc(-50% - 1.5px)) scale(1.05);
+  }
+  75% {
+    transform: translate(-50%, calc(-50% - 5px)) scale(1.06);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+/* Outer glowing aura ring */
+.in-circle-active-aura {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid rgba(192, 132, 252, 0.7);
+  pointer-events: none;
+  animation: auraPulse 2.4s ease-out infinite;
+}
+
+@keyframes auraPulse {
+  0% {
+    transform: scale(0.96);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+}
+
+/* Subtle organic ambient float for non-active circles */
+@keyframes ambientFloatA {
+  0%, 100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, calc(-50% - 3px));
+  }
+}
+
+@keyframes ambientFloatB {
+  0%, 100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, calc(-50% + 3px));
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Individual Circle Coordinates (Non-Overlapping Clean Arc)
+   -------------------------------------------------------------------------- */
+
+/* 1. Manufacturing (Top) - 43px clearance from top edge */
+.in-circle-manufacturing {
+  left: 56.14%;
+  top: 13.86%;
+}
+
+.in-circle-manufacturing:not(.in-circle-active) {
+  animation: ambientFloatA 6s ease-in-out infinite;
+}
+
+/* 2. Finance (Upper Right) */
+.in-circle-finance {
+  left: 69.01%;
+  top: 30.60%;
+}
+
+.in-circle-finance:not(.in-circle-active) {
+  animation: ambientFloatB 7s ease-in-out infinite 1s;
+}
+
+/* 3. Tech And SAAS (Center Right - Even Size with All Others) */
+.in-circle-tech-saas {
+  left: 74.85%;
+  top: 50.00%;
+}
+
+.in-circle-tech-saas:not(.in-circle-active) {
+  animation: ambientFloatA 8s ease-in-out infinite 2s;
+}
+
+/* 4. Retail (Lower Right) */
+.in-circle-retail {
+  left: 69.01%;
+  top: 69.40%;
+}
+
+.in-circle-retail:not(.in-circle-active) {
+  animation: ambientFloatB 6.5s ease-in-out infinite 3s;
+}
+
+/* 5. Customer Innovation (Bottom) - 43px clearance from bottom edge */
+.in-circle-customer-innovation {
+  left: 56.14%;
+  top: 86.14%;
+}
+
+.in-circle-customer-innovation:not(.in-circle-active) {
+  animation: ambientFloatA 7.2s ease-in-out infinite 4s;
+}
+
+/* --------------------------------------------------------------------------
+   Cycle Indicators (Bottom Left Progress Dots)
+   -------------------------------------------------------------------------- */
+.in-cycle-indicators {
+  position: absolute;
+  bottom: 16px;
+  left: 18px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(200, 208, 222, 0.7);
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+}
+
+.in-cycle-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.in-cycle-dot:hover {
+  background: #94a3b8;
+  transform: scale(1.2);
+}
+
+.in-cycle-dot.active {
+  width: 24px;
+  border-radius: 4px;
+  background: #e2e8f0;
+}
+
+.in-cycle-progress-bar {
+  position: absolute;
+  inset: 0;
+  background: #7c3aed;
+  border-radius: 4px;
+  animation: progressFill 5s linear;
+}
+
+@keyframes progressFill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}

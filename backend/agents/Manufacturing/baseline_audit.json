@@ -1,0 +1,182 @@
+[
+  {
+    "method": "GET",
+    "path": "/api/health",
+    "status": 200,
+    "payload_bytes": 71.0,
+    "p50_ms": 1230.2983000408858,
+    "p95_ms": 1488.0512000527233,
+    "queries": 1.0
+  },
+  {
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status": 200,
+    "payload_bytes": 558.0,
+    "p50_ms": 1224.332100013271,
+    "p95_ms": 1264.0019000973552,
+    "queries": 1.0
+  },
+  {
+    "method": "GET",
+    "path": "/api/auth/users",
+    "status": 200,
+    "payload_bytes": 4590.0,
+    "p50_ms": 1424.7644001152366,
+    "p95_ms": 1465.8494999166578,
+    "queries": 2.0
+  },
+  {
+    "method": "GET",
+    "path": "/api/auth/department-contacts",
+    "status": 200,
+    "payload_bytes": 1063.0,
+    "p50_ms": 1481.9924000184983,
+    "p95_ms": 1894.7060001082718,
+    "queries": 2.0
+  },
+  {
+    "method": "GET",
+    "path": "/api/auth/department-mappings",
+    "status": 200,
+    "payload_bytes": 2115.0,
+    "p50_ms": 1438.465200131759,
+    "p95_ms": 1459.3838001601398,
+    "queries": 2.0
+  },
+  {
+    "method": "GET",
+    "path": "/api/auth/audit-logs",
+    "status": 404,
+    "payload_bytes": 107.0,
+    "p50_ms": 9.266099892556667,
+    "p95_ms": 10.764400009065866,
+    "queries": 0.0
+  },
+  {
+    "method": "GET",
+    "path": "/api/orders",
+    "status": 200,
+    "payload_bytes": 19130.0,
+    "p50_ms": 2632.45280017145,
+    "p95_ms": 2768.5553999617696,
+    "queries": 6.0
+  },
+  {
+    "method": "GET",
+    "path": "/api/orders/CO-000001",
+    "status": 200,
+    "payload_bytes": 3655.0,
+    "p50_ms": 5840.655200183392,
+    "p95_ms": 7543.769699987024,
+    "queries": 8.0
+  },
+  {
+    "method": "GET",
+    "path": "/api/dashboard/overview",
+    "status": 404,
+    "payload_bytes": 107.0,
+    "p50_ms": 11.85290003195405,
+    "p95_ms": 18.002399941906333,
+    "queries": 0.0
+  },
+  {
+    "method": "GET",
+    "path": "/api/dashboard/charts",
+    "status": 404,
+    "payload_bytes": 107.0,
+    "p50_ms": 10.607399977743626,
+    "p95_ms": 12.105700094252825,
+    "queries": 0.0
+  },
+  {
+    "method": "GET",
+    "path": "/api/assessments",
+    "status": 200,
+    "payload_bytes": 33886.0,
+    "p50_ms": 3902.1155000664294,
+    "p95_ms": 3985.5600998271257,
+    "queries": 8.0
+  },
+  {
+    "method": "GET",
+    "path": "/api/monitoring/records",
+    "status": 200,
+    "payload_bytes": 7826.0,
+    "p50_ms": 1490.6703000888228,
+    "p95_ms": 1506.1001998838037,
+    "queries": 2.0
+  },
+  {
+    "method": "GET",
+    "path": "/api/monitoring/logs",
+    "status": 200,
+    "payload_bytes": 5808.0,
+    "p50_ms": 1488.884499995038,
+    "p95_ms": 1536.3986000884324,
+    "queries": 2.0
+  },
+  {
+    "method": "GET",
+    "path": "/api/alerts",
+    "status": 200,
+    "payload_bytes": 13501.0,
+    "p50_ms": 1830.5149001535028,
+    "p95_ms": 1841.6491001844406,
+    "queries": 3.0
+  },
+  {
+    "method": "GET",
+    "path": "/api/alerts/notifications",
+    "status": 200,
+    "payload_bytes": 57252.0,
+    "p50_ms": 1816.5599999483675,
+    "p95_ms": 1844.2036998458207,
+    "queries": 2.0
+  },
+  {
+    "method": "GET",
+    "path": "/api/inventory/summary",
+    "status": 404,
+    "payload_bytes": 107.0,
+    "p50_ms": 10.599999921396375,
+    "p95_ms": 28.85890007019043,
+    "queries": 0.0
+  },
+  {
+    "method": "GET",
+    "path": "/api/inventory/aging",
+    "status": 404,
+    "payload_bytes": 107.0,
+    "p50_ms": 10.173099813982844,
+    "p95_ms": 10.273199994117022,
+    "queries": 0.0
+  },
+  {
+    "method": "GET",
+    "path": "/api/kpis",
+    "status": 200,
+    "payload_bytes": 3001.0,
+    "p50_ms": 1255.7201001327485,
+    "p95_ms": 3711.0762998927385,
+    "queries": 3.0
+  },
+  {
+    "method": "GET",
+    "path": "/api/connectors",
+    "status": 404,
+    "payload_bytes": 107.0,
+    "p50_ms": 10.20550006069243,
+    "p95_ms": 12.278200127184391,
+    "queries": 0.0
+  },
+  {
+    "method": "GET",
+    "path": "/api/connectors/benchmark/status",
+    "status": 404,
+    "payload_bytes": 107.0,
+    "p50_ms": 5.761400097981095,
+    "p95_ms": 8.127500070258975,
+    "queries": 0.0
+  }
+]

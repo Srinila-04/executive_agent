@@ -1,0 +1,106 @@
+{
+  "timestamp": "2026-11-18T05:16:12.609176+00:00",
+  "database_url": "ep-soft-field-be6m5lnl-pooler.c-9.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require",
+  "datasets": {
+    "dim_customer": {
+      "source_file": "dim_customer.csv",
+      "total_csv_rows": 4,
+      "imported_rows": 4,
+      "skipped_duplicates": 0,
+      "rejected_rows": 0
+    },
+    "dim_product": {
+      "source_file": "dim_product.csv",
+      "total_csv_rows": 3,
+      "imported_rows": 3,
+      "skipped_duplicates": 0,
+      "rejected_rows": 0
+    },
+    "dim_plant": {
+      "source_file": "dim_plant.csv",
+      "total_csv_rows": 2,
+      "imported_rows": 2,
+      "skipped_duplicates": 0,
+      "rejected_rows": 0
+    },
+    "fact_customer_order": {
+      "source_file": "fact_customer_order.csv",
+      "total_csv_rows": 1500,
+      "imported_rows": 1500,
+      "skipped_duplicates": 0,
+      "rejected_rows": 0
+    },
+    "fact_production_order": {
+      "source_file": "fact_production_order.csv",
+      "total_csv_rows": 450,
+      "imported_rows": 450,
+      "skipped_duplicates": 0,
+      "rejected_rows": 0
+    },
+    "fact_shipment_milestone": {
+      "source_file": "fact_shipment_milestone.csv",
+      "total_csv_rows": 1000,
+      "imported_rows": 1000,
+      "skipped_duplicates": 0,
+      "rejected_rows": 0
+    },
+    "fact_quality_inspection": {
+      "source_file": "fact_quality_inspection.csv",
+      "total_csv_rows": 16000,
+      "imported_rows": 16000,
+      "skipped_duplicates": 0,
+      "rejected_rows": 0
+    },
+    "fact_inventory_daily_snapshot": {
+      "source_file": "fact_inventory_daily_snapshot.csv",
+      "total_csv_rows": 6624,
+      "imported_rows": 6624,
+      "skipped_duplicates": 0,
+      "rejected_rows": 0
+    }
+  },
+  "relationship_validation": {
+    "customer_orders_to_customers": {
+      "total_distinct": 4,
+      "unmatched_count": 0,
+      "status": "VALID"
+    },
+    "customer_orders_to_products": {
+      "total_distinct": 3,
+      "unmatched_count": 0,
+      "status": "VALID"
+    },
+    "shipments_to_customer_orders": {
+      "total_distinct": 733,
+      "unmatched_count": 0,
+      "status": "VALID"
+    },
+    "production_orders_to_customer_orders": {
+      "total_distinct": 353,
+      "matched_count": 0,
+      "unmatched_count": 353,
+      "status": "DATA_QUALITY_WARNING",
+      "finding": "Production orders reference unlinked customer order numbers (e.g. CO-10873) while customer order table has CO-000001..CO-001500. Displayed as missing production link warnings per Critical Data Rules."
+    }
+  },
+  "data_quality_warnings": [
+    "CRITICAL DATA RULE PRESERVED: 0 customer orders currently link directly to production orders in raw CSV records. Identified and preserved as data-quality warnings without synthetic relationships."
+  ],
+  "seed_users": [
+    {
+      "email": "admin@manufacturing.com",
+      "role": "admin",
+      "status": "CREATED"
+    },
+    {
+      "email": "demo@manufacturing.com",
+      "role": "manager",
+      "status": "CREATED"
+    },
+    {
+      "email": "operator@manufacturing.com",
+      "role": "operator",
+      "status": "CREATED"
+    }
+  ]
+}

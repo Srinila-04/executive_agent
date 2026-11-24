@@ -1,0 +1,281 @@
+[
+  {
+    "method": "GET",
+    "path": "/api/health",
+    "status": 200,
+    "payload_bytes": 71.0,
+    "p50_ms": 1212.1,
+    "p95_ms": 1281.9,
+    "queries": 1
+  },
+  {
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status": 200,
+    "payload_bytes": 558.0,
+    "p50_ms": 1234.6,
+    "p95_ms": 1256.0,
+    "queries": 1
+  },
+  {
+    "method": "GET",
+    "path": "/api/auth/users",
+    "status": 200,
+    "payload_bytes": 4590.0,
+    "p50_ms": 1365.6,
+    "p95_ms": 1479.4,
+    "queries": 2
+  },
+  {
+    "method": "GET",
+    "path": "/api/auth/department-contacts",
+    "status": 200,
+    "payload_bytes": 1063.0,
+    "p50_ms": 1526.8,
+    "p95_ms": 1540.8,
+    "queries": 2
+  },
+  {
+    "method": "GET",
+    "path": "/api/auth/department-mappings",
+    "status": 200,
+    "payload_bytes": 2115.0,
+    "p50_ms": 1442.0,
+    "p95_ms": 1450.6,
+    "queries": 2
+  },
+  {
+    "method": "GET",
+    "path": "/api/dashboard/summary",
+    "status": 200,
+    "payload_bytes": 351.0,
+    "p50_ms": 1327.2,
+    "p95_ms": 1532.8,
+    "queries": 1
+  },
+  {
+    "method": "GET",
+    "path": "/api/dashboard/order-status",
+    "status": 200,
+    "payload_bytes": 542.0,
+    "p50_ms": 1180.0,
+    "p95_ms": 1486.6,
+    "queries": 1
+  },
+  {
+    "method": "GET",
+    "path": "/api/dashboard/at-risk",
+    "status": 200,
+    "payload_bytes": 14878.0,
+    "p50_ms": 1209.8,
+    "p95_ms": 4724.1,
+    "queries": 3
+  },
+  {
+    "method": "GET",
+    "path": "/api/dashboard/delivery-performance",
+    "status": 200,
+    "payload_bytes": 1108.0,
+    "p50_ms": 1229.5,
+    "p95_ms": 1804.7,
+    "queries": 1
+  },
+  {
+    "method": "GET",
+    "path": "/api/dashboard/trends",
+    "status": 200,
+    "payload_bytes": 995.0,
+    "p50_ms": 1352.5,
+    "p95_ms": 1414.7,
+    "queries": 1
+  },
+  {
+    "method": "GET",
+    "path": "/api/orders",
+    "status": 200,
+    "payload_bytes": 19130.0,
+    "p50_ms": 2662.2,
+    "p95_ms": 2721.2,
+    "queries": 6
+  },
+  {
+    "method": "GET",
+    "path": "/api/orders/overdue",
+    "status": 200,
+    "payload_bytes": 7206.0,
+    "p50_ms": 1182.7,
+    "p95_ms": 2833.5,
+    "queries": 2
+  },
+  {
+    "method": "GET",
+    "path": "/api/orders/CO-000001",
+    "status": 200,
+    "payload_bytes": 3655.0,
+    "p50_ms": 3380.6,
+    "p95_ms": 6170.9,
+    "queries": 8
+  },
+  {
+    "method": "GET",
+    "path": "/api/orders/CO-000001/timeline",
+    "status": 200,
+    "payload_bytes": 15257.0,
+    "p50_ms": 3273.8,
+    "p95_ms": 3792.9,
+    "queries": 6
+  },
+  {
+    "method": "GET",
+    "path": "/api/orders/CO-000001/atp-ctp",
+    "status": 200,
+    "payload_bytes": 5536.0,
+    "p50_ms": 6821.5,
+    "p95_ms": 7205.5,
+    "queries": 16
+  },
+  {
+    "method": "GET",
+    "path": "/api/orders/CO-000001/promise-recommendation",
+    "status": 200,
+    "payload_bytes": 788.0,
+    "p50_ms": 8940.9,
+    "p95_ms": 9198.6,
+    "queries": 21
+  },
+  {
+    "method": "GET",
+    "path": "/api/orders/CO-000001/status-draft",
+    "status": 200,
+    "payload_bytes": 1588.0,
+    "p50_ms": 3806.6,
+    "p95_ms": 3903.5,
+    "queries": 7
+  },
+  {
+    "method": "GET",
+    "path": "/api/orders/CO-000001/escalation-pack",
+    "status": 200,
+    "payload_bytes": 591.0,
+    "p50_ms": 6551.5,
+    "p95_ms": 8079.5,
+    "queries": 15
+  },
+  {
+    "method": "GET",
+    "path": "/api/orders/CO-000001/validation",
+    "status": 200,
+    "payload_bytes": 1273.0,
+    "p50_ms": 1679.9,
+    "p95_ms": 1734.8,
+    "queries": 3
+  },
+  {
+    "method": "GET",
+    "path": "/api/inventory/materials",
+    "status": 200,
+    "payload_bytes": 8680.0,
+    "p50_ms": 2018.3,
+    "p95_ms": 2019.9,
+    "queries": 4
+  },
+  {
+    "method": "GET",
+    "path": "/api/conversations",
+    "status": 200,
+    "payload_bytes": 4167.0,
+    "p50_ms": 7620.2,
+    "p95_ms": 7782.3,
+    "queries": 22
+  },
+  {
+    "method": "GET",
+    "path": "/api/allocation/proposal",
+    "status": 200,
+    "payload_bytes": 151125.0,
+    "p50_ms": 2455.2,
+    "p95_ms": 2468.6,
+    "queries": 4
+  },
+  {
+    "method": "GET",
+    "path": "/api/commitment-proposals",
+    "status": 200,
+    "payload_bytes": 6287.0,
+    "p50_ms": 1493.3,
+    "p95_ms": 1576.2,
+    "queries": 2
+  },
+  {
+    "method": "GET",
+    "path": "/api/kpis",
+    "status": 200,
+    "payload_bytes": 3001.0,
+    "p50_ms": 1234.3,
+    "p95_ms": 3211.5,
+    "queries": 3
+  },
+  {
+    "method": "GET",
+    "path": "/api/assessments",
+    "status": 200,
+    "payload_bytes": 33886.0,
+    "p50_ms": 3985.2,
+    "p95_ms": 5263.4,
+    "queries": 8
+  },
+  {
+    "method": "GET",
+    "path": "/api/monitoring/records",
+    "status": 200,
+    "payload_bytes": 7826.0,
+    "p50_ms": 1434.7,
+    "p95_ms": 1536.1,
+    "queries": 2
+  },
+  {
+    "method": "GET",
+    "path": "/api/monitoring/logs",
+    "status": 200,
+    "payload_bytes": 5808.0,
+    "p50_ms": 1447.9,
+    "p95_ms": 1624.8,
+    "queries": 2
+  },
+  {
+    "method": "GET",
+    "path": "/api/alerts",
+    "status": 200,
+    "payload_bytes": 13501.0,
+    "p50_ms": 1782.9,
+    "p95_ms": 1966.0,
+    "queries": 3
+  },
+  {
+    "method": "GET",
+    "path": "/api/alerts/summary",
+    "status": 200,
+    "payload_bytes": 70.0,
+    "p50_ms": 2560.5,
+    "p95_ms": 2601.2,
+    "queries": 6
+  },
+  {
+    "method": "GET",
+    "path": "/api/alerts/notifications",
+    "status": 200,
+    "payload_bytes": 57252.0,
+    "p50_ms": 1598.3,
+    "p95_ms": 1990.4,
+    "queries": 2
+  },
+  {
+    "method": "GET",
+    "path": "/api/connectors/status",
+    "status": 200,
+    "payload_bytes": 514.0,
+    "p50_ms": 3495.6,
+    "p95_ms": 3543.0,
+    "queries": 9
+  }
+]

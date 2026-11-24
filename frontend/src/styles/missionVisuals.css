@@ -1,0 +1,361 @@
+/* ========================================================================= */
+/* MISSION VISUAL ANIMATIONS CSS                                             */
+/* High-performance industrial vector animations for Mission Pillar           */
+/* ========================================================================= */
+
+.mission-pic-stage {
+  width: 100%;
+  flex: 1;
+  min-height: 38px;
+  max-height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
+  position: relative;
+}
+
+[data-theme="dark"] .mission-pic-stage {
+  background: rgba(15, 23, 42, 0.65);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.mission-svg-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.mission-visual-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: stretch !important;
+  gap: 3px !important;
+  padding: 4px 5px !important;
+}
+
+.mission-card-caption-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  width: 100%;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+.mission-card-caption-bar .sub-card-title {
+  font-size: 8.5px;
+  font-weight: 750;
+  line-height: 1.15;
+  color: var(--text-primary);
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  flex: 1;
+}
+
+.mission-live-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 1px 4px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid currentColor;
+  font-size: 7px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .mission-live-tag {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.mission-live-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: missionDotPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes missionDotPulse {
+  0%, 100% { transform: scale(0.85); opacity: 0.6; }
+  50% { transform: scale(1.25); opacity: 1; }
+}
+
+/* ========================================================================= */
+/* KEYFRAME ANIMATIONS FOR THE 60 BESPOKE MISSION VISUALS                    */
+/* ========================================================================= */
+
+/* 1. Oscilloscope & Waves */
+.m-wave-scroll-1 {
+  animation: waveScroll1 2s linear infinite;
+}
+@keyframes waveScroll1 {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-24px); }
+}
+
+.m-wave-scroll-2 {
+  animation: waveScroll2 1.4s linear infinite;
+}
+@keyframes waveScroll2 {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-20px); }
+}
+
+.m-probe-pulse {
+  animation: probePulse 1s ease-in-out infinite alternate;
+}
+@keyframes probePulse {
+  0% { transform: scale(0.9); opacity: 0.65; }
+  100% { transform: scale(1.3); opacity: 1; filter: drop-shadow(0 0 3px currentColor); }
+}
+
+/* 2. Rotating Bearing / Gear */
+.m-spin-cw-fast {
+  animation: spinCW 3s linear infinite;
+  transform-origin: center center;
+}
+.m-spin-cw-slow {
+  animation: spinCW 6s linear infinite;
+  transform-origin: center center;
+}
+.m-spin-ccw {
+  animation: spinCCW 3.5s linear infinite;
+  transform-origin: center center;
+}
+@keyframes spinCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes spinCCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+/* 3. Radar Sweep & Sonar Rings */
+.m-radar-sweep {
+  animation: radarRotate 2.5s linear infinite;
+  transform-origin: center center;
+}
+@keyframes radarRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.m-sonar-ring-1 {
+  animation: sonarExpand 2s cubic-bezier(0.1, 0.5, 0.8, 1) infinite;
+  transform-origin: center center;
+}
+.m-sonar-ring-2 {
+  animation: sonarExpand 2s cubic-bezier(0.1, 0.5, 0.8, 1) 0.7s infinite;
+  transform-origin: center center;
+}
+.m-sonar-ring-3 {
+  animation: sonarExpand 2s cubic-bezier(0.1, 0.5, 0.8, 1) 1.3s infinite;
+  transform-origin: center center;
+}
+@keyframes sonarExpand {
+  0% { transform: scale(0.2); opacity: 1; }
+  80% { opacity: 0.6; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* 4. Robotic Arm & Tooling Motion */
+.m-arm-pivot {
+  animation: armPivotMotion 2.4s ease-in-out infinite;
+  transform-origin: 20px 35px;
+}
+@keyframes armPivotMotion {
+  0%, 100% { transform: rotate(-15deg); }
+  50% { transform: rotate(18deg); }
+}
+
+.m-tool-dock {
+  animation: toolDockMotion 2.4s ease-in-out infinite;
+}
+@keyframes toolDockMotion {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+/* 5. Electricity & Spark */
+.m-spark-flow {
+  animation: sparkFlowMotion 0.8s ease-in-out infinite alternate;
+}
+@keyframes sparkFlowMotion {
+  0% { opacity: 0.4; stroke-width: 1; }
+  100% { opacity: 1; stroke-width: 2.2; filter: drop-shadow(0 0 3px #facc15); }
+}
+
+/* 6. Sliding Load / Timeline */
+.m-slide-bar {
+  animation: slideLoadBar 2.2s ease-in-out infinite alternate;
+}
+@keyframes slideLoadBar {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(32px); }
+}
+
+/* 7. Gauge Needles */
+.m-gauge-needle-wiggle {
+  animation: needleWiggle 1.8s ease-in-out infinite alternate;
+  transform-origin: center bottom;
+}
+@keyframes needleWiggle {
+  0% { transform: rotate(-25deg); }
+  50% { transform: rotate(10deg); }
+  100% { transform: rotate(28deg); }
+}
+
+/* 8. Conveyor & Flowing Particles */
+.m-conveyor-track {
+  animation: conveyorTrackDash 0.8s linear infinite;
+}
+@keyframes conveyorTrackDash {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -10; }
+}
+
+.m-moving-part-1 {
+  animation: flowPart1 2s linear infinite;
+}
+.m-moving-part-2 {
+  animation: flowPart2 2s linear infinite 0.66s;
+}
+.m-moving-part-3 {
+  animation: flowPart3 2s linear infinite 1.33s;
+}
+@keyframes flowPart1 {
+  0% { transform: translateX(-10px); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateX(95px); opacity: 0; }
+}
+@keyframes flowPart2 {
+  0% { transform: translateX(-10px); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateX(95px); opacity: 0; }
+}
+@keyframes flowPart3 {
+  0% { transform: translateX(-10px); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateX(95px); opacity: 0; }
+}
+
+/* 9. Laser Scanning Beam */
+.m-laser-scan-v {
+  animation: laserScanVertical 1.6s ease-in-out infinite alternate;
+}
+@keyframes laserScanVertical {
+  0% { transform: translateY(0); opacity: 0.8; }
+  100% { transform: translateY(24px); opacity: 1; }
+}
+
+.m-laser-scan-h {
+  animation: laserScanHorizontal 1.8s ease-in-out infinite alternate;
+}
+@keyframes laserScanHorizontal {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(65px); }
+}
+
+/* 10. Reject Piston Ejection */
+.m-piston-punch {
+  animation: pistonPunchAction 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+@keyframes pistonPunchAction {
+  0%, 75%, 100% { transform: translateY(0); }
+  82% { transform: translateY(9px); }
+}
+
+/* 11. Stacking / Gantt / Chart Bars */
+.m-bar-grow-1 {
+  animation: barGrow1 1.4s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+.m-bar-grow-2 {
+  animation: barGrow2 1.8s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+.m-bar-grow-3 {
+  animation: barGrow3 1.2s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+@keyframes barGrow1 {
+  0% { transform: scaleY(0.5); }
+  100% { transform: scaleY(1.05); }
+}
+@keyframes barGrow2 {
+  0% { transform: scaleY(0.85); }
+  100% { transform: scaleY(0.45); }
+}
+@keyframes barGrow3 {
+  0% { transform: scaleY(0.4); }
+  100% { transform: scaleY(0.95); }
+}
+
+/* 12. Fluid / Pressure Particles */
+.m-particle-flow {
+  animation: particleStream 1.5s linear infinite;
+}
+@keyframes particleStream {
+  from { stroke-dashoffset: 24; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* 13. Digital Twin 3D Node Glow */
+.m-cyber-cube {
+  animation: cyberCubeFloat 2.6s ease-in-out infinite alternate;
+  transform-origin: center center;
+}
+@keyframes cyberCubeFloat {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-2px) rotate(4deg); }
+}
+
+/* 14. GPS Route Pulse */
+.m-gps-pulse {
+  animation: gpsPulseAura 1.5s ease-out infinite;
+  transform-origin: center center;
+}
+@keyframes gpsPulseAura {
+  0% { transform: scale(0.7); opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* 15. Padlock LOTO Shackle */
+.m-loto-snap {
+  animation: lotoShackleLock 2.4s ease-in-out infinite;
+}
+@keyframes lotoShackleLock {
+  0%, 100% { transform: translateY(0); }
+  45% { transform: translateY(0); }
+  55% { transform: translateY(-3px); }
+  70% { transform: translateY(0); }
+}
+
+/* 16. Stamp / Checkmark Gleam */
+.m-stamp-press {
+  animation: stampPressDown 2s ease-in-out infinite;
+  transform-origin: center center;
+}
+@keyframes stampPressDown {
+  0%, 100% { transform: scale(1); }
+  48% { transform: scale(1.15); filter: drop-shadow(0 0 3px currentColor); }
+  52% { transform: scale(0.95); }
+  60% { transform: scale(1); }
+}

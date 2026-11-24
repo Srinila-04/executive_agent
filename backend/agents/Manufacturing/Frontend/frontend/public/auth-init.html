@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Auth Initializer</title>
+</head>
+<body style="font-family: sans-serif; padding: 40px; text-align: center;">
+  <h2>Authenticating test session...</h2>
+  <div id="status">Connecting to backend...</div>
+  <script>
+    fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: 'admin@manufacturing.com',
+        password: 'AdminSecurePass123!'
+      })
+    })
+    .then(async (res) => {
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error('Login failed: ' + res.status + ' ' + text);
+      }
+      return res.json();
+    })
+    .then((data) => {
+      document.getElementById('status').innerText = 'Authenticated! Redirecting to /...';
+      localStorage.setItem('access_token', data.access_token);
+      localStorage.setItem('theme', 'light');
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 500);
+    })
+    .catch((err) => {
+      document.getElementById('status').innerText = err.message;
+      console.error(err);
+    });
+  </script>
+</body>
+</html>
