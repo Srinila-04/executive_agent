@@ -1,0 +1,342 @@
+{
+  "production_planning": {
+    "name": "Production Planning Agent",
+    "url": "https://production-planning-khaki.vercel.app/#Overview",
+    "base": "https://production-planning-khaki.vercel.app",
+    "title": "GWC DATA.AI \u00b7 Production Planning",
+    "routes": [],
+    "api_endpoints": [
+      "/api/overview/solutions",
+      "/api/status",
+      "/api/reports/log",
+      "/api/chat",
+      "/api/integrations/connectors",
+      "/api/integrations",
+      "/api/volume",
+      "/api/plan-tools/changeovers",
+      "/api/orders/sheet",
+      "/api/auth/me"
+    ],
+    "kpis": [
+      "Floor OEE this hour"
+    ],
+    "script_count": 1
+  },
+  "oee_performance": {
+    "name": "OEE Performance Agent",
+    "url": "https://oee-performance-agent.vercel.app/",
+    "base": "https://oee-performance-agent.vercel.app",
+    "title": "OEE Performance Agent",
+    "routes": [],
+    "api_endpoints": [
+      "/api/meta",
+      "/api/capability/machines",
+      "/api/mail/operators",
+      "/api/mail/send",
+      "/api/etl/run-now",
+      "/api/snapshot",
+      "/api/runs",
+      "/api/db/mes/tables",
+      "/api/etl/runs",
+      "/api/products"
+    ],
+    "kpis": [
+      "Push OEE KPIs",
+      "Sync Downtime Log",
+      "Plant OEE is ",
+      "Machine OEE",
+      "Overall OEE",
+      "Quality Yield",
+      "Real Output Rate",
+      "OVERALL OEE",
+      "Cycle Time",
+      "Expected OEE"
+    ],
+    "script_count": 1
+  },
+  "predictive_maintenance": {
+    "name": "Predictive Maintenance Agent",
+    "url": "https://predictive-maintenance-frontend-kappa.vercel.app/",
+    "base": "https://predictive-maintenance-frontend-kappa.vercel.app",
+    "title": "Predictive Maintenance Agent",
+    "routes": [],
+    "api_endpoints": [
+      "/api/machines/register/read",
+      "/api/machines/register/apply",
+      "/api/manual",
+      "/api/meta",
+      "/api/integrations/send",
+      "/api/reports/send",
+      "/api/reports/recipients",
+      "/api/chat",
+      "/api/cases",
+      "/api/conversations"
+    ],
+    "kpis": [],
+    "script_count": 1
+  },
+  "quality_management": {
+    "name": "Quality Management Agent",
+    "url": "https://quality-management-agent-app.vercel.app",
+    "base": "https://quality-management-agent-app.vercel.app",
+    "title": "Q-CORE | Quality Management Agent",
+    "routes": [],
+    "api_endpoints": [],
+    "kpis": [
+      "Submit Defect Observation to Neon DB"
+    ],
+    "script_count": 1
+  },
+  "vision_ai_inspection": {
+    "name": "Vision AI Inspection Agent",
+    "url": "https://vision-ai-inspection-agent-app.vercel.app/",
+    "base": "https://vision-ai-inspection-agent-app.vercel.app",
+    "title": "Vision AI Inspection Agent \u2014 Final Product Inspection",
+    "routes": [],
+    "api_endpoints": [
+      "/api/inspection/entry",
+      "/api/prod/monitor/status",
+      "/api/inspection/prerequisites/readiness",
+      "/api/prod/export",
+      "https://mes.plant.local/api/v2",
+      "/api/prod/review/stats",
+      "/api/inspection/entry/options",
+      "/api/samples",
+      "/api/inspection/overview/architecture",
+      "/api/workspace/users"
+    ],
+    "kpis": [],
+    "script_count": 1
+  },
+  "engineering_change": {
+    "name": "Engineering Change Management Agent",
+    "url": "https://manufacturing-ai-frontend.vercel.app",
+    "base": "https://manufacturing-ai-frontend.vercel.app",
+    "title": "GWC DATA.AI | Engineering Change Management Agent",
+    "routes": [
+      "/overview",
+      "/new",
+      "/changes",
+      "/pipeline"
+    ],
+    "api_endpoints": [
+      "/api/changes",
+      "/api/flows/confirm",
+      "/api/admin/workflow-config",
+      "/api/chat",
+      "/api/data-sources",
+      "/api/lineage/graph",
+      "/api/bom/validate-item-intelligence",
+      "/api/bom/confirm-item-intelligence",
+      "/api/notifications/scan-overdue",
+      "/api/auth/me"
+    ],
+    "kpis": [
+      "Obsolete Inventory Exposure",
+      "Hydraulic Dwell Time",
+      "Final Target Cost",
+      "Takt Time Tracking",
+      "Line Balance Efficiency Acceptable",
+      "Risk Score",
+      "Cycle Time Delta",
+      "Lead Time",
+      "Unit Component Cost",
+      "Takt Time Verification",
+      "Dwell Time",
+      "Assembly Time Check",
+      "Scheduled Line Downtime for Jig Swap",
+      "Capex Rework Cost Breakdown",
+      "Critical Path Lead Time"
+    ],
+    "script_count": 1
+  },
+  "product_traceability": {
+    "name": "Product Traceability Agent",
+    "url": "https://product-traceability-rho.vercel.app/",
+    "base": "https://product-traceability-rho.vercel.app",
+    "title": "GWC DATA.AI \u2014 Product Traceability Agent",
+    "routes": [],
+    "api_endpoints": [],
+    "kpis": [
+      "Supplier Risk Score",
+      "Physical Assembly Defect Investigation",
+      "Hourly Defect Summaries",
+      "Throughput Rate",
+      "Mean Time to Contain",
+      "Ingestion Rate",
+      "Financial Cost Saved",
+      "Hourly Defect Aggregation",
+      "Critical Defect"
+    ],
+    "script_count": 1
+  },
+  "inventory_management": {
+    "name": "Inventory Management Agent",
+    "url": "https://inventory-managment-agent.vercel.app/",
+    "base": "https://inventory-managment-agent.vercel.app",
+    "title": "Inventory Agent",
+    "routes": [],
+    "api_endpoints": [],
+    "kpis": [],
+    "script_count": 1
+  },
+  "supplier_performance": {
+    "name": "Supplier Performance Agent",
+    "url": "https://supplier-performance-agent-frontend-sable.vercel.app/",
+    "base": "https://supplier-performance-agent-frontend-sable.vercel.app",
+    "title": "Supplier Performance Agent \u00b7 GWC Data.AI",
+    "routes": [],
+    "api_endpoints": [],
+    "kpis": [],
+    "script_count": 1
+  },
+  "agentic_rfq": {
+    "name": "Agentic RFQ Management Agent",
+    "url": "https://manufacturing-rfq-poc.vercel.app",
+    "base": "https://manufacturing-rfq-poc.vercel.app",
+    "title": "RFQ Workspace | GWC Data.ai",
+    "routes": [],
+    "api_endpoints": [],
+    "kpis": [],
+    "script_count": 1
+  },
+  "logistics_dispatch": {
+    "name": "Logistics and Dispatch Agent",
+    "url": "https://logistics-dispatch-gamma.vercel.app/",
+    "base": "https://logistics-dispatch-gamma.vercel.app",
+    "title": "INTELLIGENT LOGISTICS OPERATIONS AGENT",
+    "routes": [],
+    "api_endpoints": [],
+    "kpis": [],
+    "script_count": 1
+  },
+  "energy_management": {
+    "name": "Energy Management Agent",
+    "url": "https://energy-gules.vercel.app/",
+    "base": "https://energy-gules.vercel.app",
+    "title": "Industrial Energy Intelligence",
+    "routes": [
+      "/data-connectors",
+      "/investigation-actions",
+      "/dashboard",
+      "/production-analytics",
+      "/daily-reports",
+      "/ai-assistant",
+      "/daily-operations",
+      "/energy-analytics"
+    ],
+    "api_endpoints": [
+      "/api/health"
+    ],
+    "kpis": [],
+    "script_count": 1
+  },
+  "ehs_safety": {
+    "name": "EHS and Safety Agent",
+    "url": "https://frontend-dhob.onrender.com",
+    "base": "https://frontend-dhob.onrender.com",
+    "title": "EHS Safety AI \u2014 Enterprise Workplace Safety Intelligence",
+    "routes": [
+      "/monitoring/history",
+      "/agents",
+      "/overview",
+      "/ehs-agent",
+      "/monitoring/video",
+      "/command-center",
+      "/monitoring/digital-twin",
+      "/operations"
+    ],
+    "api_endpoints": [
+      "/api/v1/connectors/overview",
+      "/api/v1/notifications/read-all",
+      "/api/v1/connectors/drivers/status",
+      "/api/v1/ai/agents",
+      "/api/v1/detection/models/status",
+      "/api/v1/analytics/maintenance/summary",
+      "/api/v1/detection/upload",
+      "/api/v1/connectors/primary",
+      "/api/v1/analytics/overview",
+      "/api/v1/connectors"
+    ],
+    "kpis": [
+      "Event Timestamp",
+      "Training Current Rate",
+      "All Time",
+      "Created Timestamp"
+    ],
+    "script_count": 1
+  },
+  "workforce_management": {
+    "name": "Workforce Management Agent",
+    "url": "https://workforce-management-navy.vercel.app/",
+    "base": "https://workforce-management-navy.vercel.app",
+    "title": "Workforce AI | Prototype",
+    "routes": [
+      "/g"
+    ],
+    "api_endpoints": [],
+    "kpis": [],
+    "script_count": 1
+  },
+  "manufacturing_cost": {
+    "name": "Manufacturing Cost Agent",
+    "url": "https://mfc-agent-frontend.vercel.app/home",
+    "base": "https://mfc-agent-frontend.vercel.app",
+    "title": "GWC DATA.AI - Manufacturing Cost Agent",
+    "routes": [
+      "/component-analysis",
+      "/home",
+      "/overview",
+      "/cost-analysis",
+      "/connectors",
+      "/reports",
+      "/production-quality",
+      "/product-analysis"
+    ],
+    "api_endpoints": [],
+    "kpis": [
+      "MoM Cost Variance",
+      "Manufacturing Cost AI Investigator",
+      "Total Manufacturing Cost",
+      "Display Defects Fallout",
+      "Average Cost per Unit",
+      "Display Defect Rate",
+      "GWC Cost AI",
+      "Manufacturing Cost Agent",
+      "Manufacturing Cost",
+      "Line Cost Batches",
+      "Manufacturing Cost Trend",
+      "Overall Production Yield",
+      "Manufacturing Cost Increases",
+      "Operational Efficiency"
+    ],
+    "script_count": 1
+  },
+  "customer_order": {
+    "name": "Customer Order Management Agent",
+    "url": "https://customer-order-management-two.vercel.app/monitoring",
+    "base": "https://customer-order-management-two.vercel.app",
+    "title": "Manufacturing 360 \u2014 Customer Order Operations",
+    "routes": [
+      "/login"
+    ],
+    "api_endpoints": [
+      "/api/auth/me",
+      "/api/auth/department-contacts",
+      "/api/auth/login",
+      "/api/conversations",
+      "/api/auth/users",
+      "/api/auth/department-mappings",
+      "/api/auth/refresh",
+      "/api/agent/chat",
+      "/api/auth/logout"
+    ],
+    "kpis": [],
+    "script_count": 1
+  },
+  "digital_twin": {
+    "name": "Digital Twin Agent",
+    "url": "https://digital-twin-frontend-c0ji.onrender.com/",
+    "error": "The read operation timed out"
+  }
+}

@@ -25,23 +25,43 @@ if DATABASE_URL:
     except Exception as e:
         print(f"[FASTAPI DB] Warning: Could not connect to Neon DB: {e}")
 
-@contextmanager
-def get_db():
-    """Context manager for obtaining a database connection from the pool with automatic dead connection pruning."""
+
+def _acquire_healthy_conn():
+    """Pull a pooled connection and replace stale/dropped Neon sockets transparently."""
     if not db_pool:
         raise Exception("Database connection pool not initialized. Check DATABASE_URL in .env")
-    conn = db_pool.getconn()
-    is_closed = False
-    try:
+    for _ in range(3):
+        conn = db_pool.getconn()
         if conn.closed:
             try:
                 db_pool.putconn(conn, close=True)
             except Exception:
                 pass
-            conn = db_pool.getconn()
+            continue
+        try:
+            with conn.cursor() as cur:
+                cur.execute("SELECT 1;")
+            conn.rollback()
+            return conn
+        except Exception:
+            try:
+                db_pool.putconn(conn, close=True)
+            except Exception:
+                pass
+    # Last resort: direct connection or fresh pool borrow
+    return db_pool.getconn()
+
+
+@contextmanager
+def get_db():
+    """Context manager for obtaining a healthy database connection from the pool."""
+    conn = _acquire_healthy_conn()
+    is_closed = False
+    try:
         yield conn
     except Exception as e:
-        if "closed" in str(e).lower() or conn.closed:
+        msg = str(e).lower()
+        if "closed" in msg or "eof" in msg or "connection" in msg or conn.closed:
             is_closed = True
         else:
             try:
@@ -65,23 +85,44 @@ def get_db():
                 except Exception:
                     pass
 
+
 def query_all(sql: str, params: tuple = None) -> list:
-    """Execute SQL query and return rows as list of dictionaries."""
-    with get_db() as conn:
-        with conn.cursor(cursor_factory=RealDictCursor) as cur:
-            cur.execute(sql, params or ())
-            rows = cur.fetchall()
-            conn.commit()
-            return [dict(r) for r in rows]
+    """Execute SQL query and return rows as list of dictionaries (retries once on dropped connection)."""
+    last_err = None
+    for attempt in range(2):
+        try:
+            with get_db() as conn:
+                with conn.cursor(cursor_factory=RealDictCursor) as cur:
+                    cur.execute(sql, params or ())
+                    rows = cur.fetchall()
+                    conn.commit()
+                    return [dict(r) for r in rows]
+        except (psycopg2.OperationalError, psycopg2.InterfaceError) as e:
+            last_err = e
+            if attempt == 0:
+                continue
+            raise
+    raise last_err
+
 
 def query_one(sql: str, params: tuple = None) -> dict | None:
-    """Execute SQL query and return single row as dictionary."""
-    with get_db() as conn:
-        with conn.cursor(cursor_factory=RealDictCursor) as cur:
-            cur.execute(sql, params or ())
-            row = cur.fetchone()
-            conn.commit()
-            return dict(row) if row else None
+    """Execute SQL query and return single row as dictionary (retries once on dropped connection)."""
+    last_err = None
+    for attempt in range(2):
+        try:
+            with get_db() as conn:
+                with conn.cursor(cursor_factory=RealDictCursor) as cur:
+                    cur.execute(sql, params or ())
+                    row = cur.fetchone()
+                    conn.commit()
+                    return dict(row) if row else None
+        except (psycopg2.OperationalError, psycopg2.InterfaceError) as e:
+            last_err = e
+            if attempt == 0:
+                continue
+            raise
+    raise last_err
+
 
 def execute_stmt(sql: str, params: tuple = None):
     """Execute INSERT/UPDATE/DELETE statement and commit."""

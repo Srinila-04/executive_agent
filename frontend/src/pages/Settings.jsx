@@ -50,42 +50,6 @@ const DEFAULT_PLANTS = [
     lines: 3,
     status: 'Active',
     lead: 'Sunita Rao (Robotics & R&D Lead)'
-  },
-  {
-    plantCode: 'IN-MH-01',
-    plantName: 'Pune Precision Stamping Plant',
-    state: 'Maharashtra',
-    district: 'Chakan / Pimpri-Chinchwad',
-    lines: 4,
-    status: 'Active',
-    lead: 'Rajesh Deshmukh (Stamping Operations)'
-  },
-  {
-    plantCode: 'IN-GJ-01',
-    plantName: 'Sanand EV Powertrain & Casting',
-    state: 'Gujarat',
-    district: 'Sanand Industrial Corridor',
-    lines: 4,
-    status: 'Active',
-    lead: 'Ananya Patel (EV Powertrain Lead)'
-  },
-  {
-    plantCode: 'IN-HR-01',
-    plantName: 'Gurugram Polymer & Wire Harness',
-    state: 'Haryana',
-    district: 'Manesar / Gurugram Belt',
-    lines: 3,
-    status: 'Active',
-    lead: 'Vikram Singhania (Harness & Materials)'
-  },
-  {
-    plantCode: 'IN-TN-02',
-    plantName: 'Hosur Precision Tooling & Dies',
-    state: 'Tamil Nadu',
-    district: 'Hosur / Coimbatore Corridor',
-    lines: 2,
-    status: 'Active',
-    lead: 'Karthik Swaminathan (Tooling & Dies)'
   }
 ];
 
@@ -647,7 +611,7 @@ export default function Settings({ settings, onSaveSettings }) {
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Pune Precision Components Hub"
+                      placeholder="e.g. Chennai SMT Expansion Unit"
                       value={modalForm.plantName}
                       onChange={(e) => setModalForm({ ...modalForm, plantName: e.target.value })}
                       className="settings-input"
@@ -658,7 +622,7 @@ export default function Settings({ settings, onSaveSettings }) {
                     <label className="settings-input-label">Plant Code</label>
                     <input
                       type="text"
-                      placeholder="e.g. IN-MH-02"
+                      placeholder="e.g. IN-TN-02"
                       value={modalForm.plantCode}
                       onChange={(e) => setModalForm({ ...modalForm, plantCode: e.target.value })}
                       className="settings-input"
@@ -673,7 +637,7 @@ export default function Settings({ settings, onSaveSettings }) {
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Tamil Nadu, Maharashtra"
+                      placeholder="e.g. Tamil Nadu, Karnataka"
                       value={modalForm.state}
                       onChange={(e) => setModalForm({ ...modalForm, state: e.target.value })}
                       className="settings-input"
@@ -683,7 +647,7 @@ export default function Settings({ settings, onSaveSettings }) {
                     <label className="settings-input-label">District / Industrial Belt</label>
                     <input
                       type="text"
-                      placeholder="e.g. Chakan Industrial Area"
+                      placeholder="e.g. Sriperumbudur Industrial Area"
                       value={modalForm.district}
                       onChange={(e) => setModalForm({ ...modalForm, district: e.target.value })}
                       className="settings-input"

@@ -3,6 +3,9 @@ from database import query_all
 
 router = APIRouter(prefix="/api/settings", tags=["Settings"])
 
+# Active plant scope: Chennai & Bengaluru only
+ALLOWED_PLANT_IDS = ("IN-TN-01", "IN-KA-01")
+
 PLANT_METADATA = {
     "IN-TN-01": {
         "district": "Sriperumbudur / Kanchipuram",
@@ -15,38 +18,14 @@ PLANT_METADATA = {
         "lead": "Sunita Rao (Robotics & R&D Lead)",
         "lines": 3,
         "status": "Active"
-    },
-    "IN-MH-01": {
-        "district": "Chakan / Pimpri-Chinchwad",
-        "lead": "Rajesh Deshmukh (Stamping Operations)",
-        "lines": 4,
-        "status": "Active"
-    },
-    "IN-GJ-01": {
-        "district": "Sanand Industrial Corridor",
-        "lead": "Ananya Patel (EV Powertrain Lead)",
-        "lines": 4,
-        "status": "Active"
-    },
-    "IN-HR-01": {
-        "district": "Manesar / Gurugram Belt",
-        "lead": "Vikram Singhania (Harness & Materials)",
-        "lines": 3,
-        "status": "Active"
-    },
-    "IN-TN-02": {
-        "district": "Hosur / Coimbatore Corridor",
-        "lead": "Karthik Swaminathan (Tooling & Dies)",
-        "lines": 2,
-        "status": "Active"
     }
 }
 
 COMPANY_SETTINGS = {
     "companyName": "Motherson Group (GWC Industrial Automation Division)",
     "industry": "Automotive Tier-1 & Industrial Electronics",
-    "totalPlants": 6,
-    "activeStateCoverage": ["Tamil Nadu", "Karnataka", "Maharashtra", "Gujarat", "Haryana"],
+    "totalPlants": 2,
+    "activeStateCoverage": ["Tamil Nadu", "Karnataka"],
     "districtCoverage": [
         {
             "plantCode": "IN-TN-01",
@@ -65,42 +44,6 @@ COMPANY_SETTINGS = {
             "lines": 3,
             "status": "Active",
             "lead": "Sunita Rao (Robotics & R&D Lead)"
-        },
-        {
-            "plantCode": "IN-MH-01",
-            "plantName": "Pune Precision Stamping Plant",
-            "state": "Maharashtra",
-            "district": "Chakan / Pimpri-Chinchwad",
-            "lines": 4,
-            "status": "Active",
-            "lead": "Rajesh Deshmukh (Stamping Operations)"
-        },
-        {
-            "plantCode": "IN-GJ-01",
-            "plantName": "Sanand EV Powertrain & Casting",
-            "state": "Gujarat",
-            "district": "Sanand Industrial Corridor",
-            "lines": 4,
-            "status": "Active",
-            "lead": "Ananya Patel (EV Powertrain Lead)"
-        },
-        {
-            "plantCode": "IN-HR-01",
-            "plantName": "Gurugram Polymer & Wire Harness",
-            "state": "Haryana",
-            "district": "Manesar / Gurugram Belt",
-            "lines": 3,
-            "status": "Active",
-            "lead": "Vikram Singhania (Harness & Materials)"
-        },
-        {
-            "plantCode": "IN-TN-02",
-            "plantName": "Hosur Precision Tooling & Dies",
-            "state": "Tamil Nadu",
-            "district": "Hosur / Coimbatore Corridor",
-            "lines": 2,
-            "status": "Active",
-            "lead": "Karthik Swaminathan (Tooling & Dies)"
         }
     ],
     "telemetryRefreshIntervalSec": 12,
@@ -108,10 +51,17 @@ COMPANY_SETTINGS = {
     "executiveCommandAgent": "Agent 20 (Master Decision Command Center)"
 }
 
+_USER_CUSTOMIZED_SETTINGS = False
+
 @router.get("")
 def get_settings():
+    if _USER_CUSTOMIZED_SETTINGS:
+        return COMPANY_SETTINGS
     try:
-        db_plants = query_all("SELECT plant_id, plant_name, state, country FROM dim_plant ORDER BY plant_id;")
+        db_plants = query_all(
+            "SELECT plant_id, plant_name, state, country FROM dim_plant WHERE plant_id = ANY(%s) ORDER BY CASE plant_id WHEN 'IN-TN-01' THEN 1 WHEN 'IN-KA-01' THEN 2 ELSE 3 END;",
+            (list(ALLOWED_PLANT_IDS),)
+        )
         if db_plants:
             coverage = []
             for p in db_plants:
@@ -139,6 +89,9 @@ def get_settings():
 
 @router.put("")
 def update_settings(payload: dict):
-    global COMPANY_SETTINGS
+    global COMPANY_SETTINGS, _USER_CUSTOMIZED_SETTINGS
     COMPANY_SETTINGS.update(payload)
+    if "districtCoverage" in payload and isinstance(payload["districtCoverage"], list):
+        COMPANY_SETTINGS["totalPlants"] = len(payload["districtCoverage"])
+    _USER_CUSTOMIZED_SETTINGS = True
     return {"success": True, "settings": COMPANY_SETTINGS}

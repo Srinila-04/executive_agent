@@ -6,12 +6,8 @@ let ADMIN_SETTINGS = {
   companyName: 'Motherson Group & GWC DATA.AI Consortium',
   headquarters: 'Sector 84, Noida, NCR, India',
   districtCoverage: [
-    { state: 'Tamil Nadu', district: 'Kanchipuram & Sriperumbudur', plantCode: 'PLANT-TN-01', plantName: 'Chennai Precision Automotive Hub', lines: 14, activeAgents: 19 },
-    { state: 'Maharashtra', district: 'Pune & Chakan Industrial Belt', plantCode: 'PLANT-MH-02', plantName: 'Pune Stamping & Assembly Works', lines: 18, activeAgents: 19 },
-    { state: 'Gujarat', district: 'Sanand & Ahmedabad Zone', plantCode: 'PLANT-GJ-03', plantName: 'Sanand EV Powertrain & Casting Unit', lines: 12, activeAgents: 18 },
-    { state: 'Haryana', district: 'Gurugram & Manesar', plantCode: 'PLANT-HR-04', plantName: 'Manesar Polymer & Wire Harness Plant', lines: 22, activeAgents: 19 },
-    { state: 'Karnataka', district: 'Bengaluru Urban & Peenya', plantCode: 'PLANT-KA-05', plantName: 'Bengaluru Advanced Robotics & R&D', lines: 8, activeAgents: 19 },
-    { state: 'Texas (USA)', district: 'Austin Metro & Travis County', plantCode: 'PLANT-US-06', plantName: 'Austin Global Export Assembly', lines: 10, activeAgents: 19 }
+    { state: 'Tamil Nadu', district: 'Sriperumbudur / Kanchipuram', plantCode: 'IN-TN-01', plantName: 'Chennai Electronics Plant', lines: 4, activeAgents: 19, status: 'Active', lead: 'Murugan K (Operations Lead)' },
+    { state: 'Karnataka', district: 'Peenya / Whitefield', plantCode: 'IN-KA-01', plantName: 'Bengaluru Electronics Plant', lines: 3, activeAgents: 19, status: 'Active', lead: 'Sunita Rao (Robotics & R&D Lead)' }
   ],
   notificationsConfig: {
     emailAlerts: true,

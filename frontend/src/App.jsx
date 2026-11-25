@@ -437,7 +437,9 @@ export default function App() {
             onNavigateToConnectors={() => setActiveTab('connectors')}
             selectedPlant={selectedPlant}
             setSelectedPlant={setSelectedPlant}
+            plants={filterOptions?.plants || settings?.districtCoverage || []}
             filterOptions={filterOptions}
+            onOpenAgent={(url, title) => setActiveEmbeddedApp({ url, title })}
           />
         )}
 

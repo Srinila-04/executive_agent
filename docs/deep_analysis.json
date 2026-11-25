@@ -1,0 +1,788 @@
+{
+  "production_planning": {
+    "nav": [
+      "Production plan",
+      "Business impact",
+      "Overview",
+      "Performance",
+      "Plan",
+      "Cost plan",
+      "Recommendation",
+      "Key recommendations",
+      "Maintenance plan",
+      "Materials and stock"
+    ],
+    "card_titles": [
+      "Days of production the stock covers",
+      "80% or more used",
+      "Forward one hour",
+      "Architecture & operations",
+      "Products",
+      "Material shortages",
+      "FastAPI",
+      "Warehouses in",
+      "Find a line or machine\u2026",
+      "Line down",
+      "Production budget",
+      "Jobs at risk from material",
+      "Good units",
+      "Consumption",
+      "Floor OEE this hour"
+    ],
+    "units": [
+      "px"
+    ],
+    "charts": [
+      "Heatmap",
+      "Gantt"
+    ],
+    "filters": [
+      "Status",
+      "date",
+      "Shift",
+      "product",
+      "range",
+      "Plant",
+      "Severity",
+      "line",
+      "Supplier",
+      "plant",
+      "Line",
+      "Product",
+      "Order",
+      "supplier",
+      "Date",
+      "shift",
+      "status"
+    ],
+    "apis": [
+      "/api/reports/log",
+      "/api/orders/upload",
+      "/api/overview/solutions",
+      "/api/users",
+      "/api/notifications/read-all",
+      "/api/plan-sets/latest",
+      "/api/chat",
+      "/api/reports/send",
+      "/api/integrations",
+      "/api/auth/logout"
+    ],
+    "js_size": 623940
+  },
+  "oee_performance": {
+    "nav": [
+      "Shift KPIs & Reports",
+      "Below Target",
+      "Maintenance & Leads",
+      "On Target",
+      "Critical Shortfall"
+    ],
+    "card_titles": [
+      "Plant comparison",
+      "SCADA",
+      "Performance",
+      "Last 30 Days",
+      "OEE",
+      "Good units",
+      "Shift C (Night: 22:00 - 06:00)",
+      "Line \u00d7 shift OEE",
+      "Quality",
+      "Agent Analysis",
+      "All Shifts (24 Hours)",
+      "QMS & TMS",
+      "QMS",
+      "Forecast (2 wks)",
+      "Daily Output"
+    ],
+    "units": [],
+    "charts": [
+      "Gantt"
+    ],
+    "filters": [
+      "date",
+      "Shift",
+      "range",
+      "product",
+      "Product",
+      "Severity",
+      "line",
+      "plant",
+      "Line",
+      "shift",
+      "Date",
+      "Range",
+      "Status"
+    ],
+    "apis": [
+      "/api/products",
+      "/api/etl/runs",
+      "/api/capability/machines",
+      "/api/mail/send",
+      "/api/mail/history",
+      "/api/meta",
+      "/api/machines",
+      "/api/snapshot",
+      "/api/runs",
+      "/api/capacity/plan"
+    ],
+    "js_size": 429351
+  },
+  "predictive_maintenance": {
+    "nav": [],
+    "card_titles": [
+      "Cases waiting for a person",
+      "Generate recommendations",
+      "Remove this entry",
+      "Planner approval and work order",
+      "health",
+      "Consumption",
+      "Collect machine data",
+      "Show this machine on the floor",
+      "Neon",
+      "Business Outcome",
+      "Analyse machine health",
+      "Data Preparation",
+      "Source Systems",
+      "Report preview",
+      "Business Layer"
+    ],
+    "units": [],
+    "charts": [],
+    "filters": [
+      "date",
+      "Shift",
+      "line",
+      "Line",
+      "shift",
+      "Order",
+      "Date",
+      "Status"
+    ],
+    "apis": [
+      "/api/machines/register/apply",
+      "/api/meta",
+      "/api/reports/recipients",
+      "/api/reports/meta",
+      "/api/integrations/send",
+      "/api/machines/register/read",
+      "/api/manual",
+      "/api/chat",
+      "/api/reports/send",
+      "/api/cases"
+    ],
+    "js_size": 342966
+  },
+  "quality_management": {
+    "nav": [],
+    "card_titles": [
+      "Quality Dip Detection:",
+      "All Warehouse & Semantic",
+      "Protects Customer Delivery:",
+      "Autonomous investigation pipeline",
+      "Material-lot exposure",
+      "High-Concurrency PgBouncer Pooling:",
+      "Alerts & Early Actions",
+      "Zero-Trust Audit Logging:",
+      "Products / plants",
+      "Station & Line Correlation",
+      "Cross-Line Benchmarking:",
+      "Cleaned & Integrated Data",
+      "Batch Deduplication & ACID Load:",
+      "End date",
+      "Extract Engine"
+    ],
+    "units": [],
+    "charts": [
+      "LineChart",
+      "BarChart",
+      "AreaChart",
+      "ScatterChart",
+      "ComposedChart",
+      "Heatmap"
+    ],
+    "filters": [
+      "Status",
+      "date",
+      "Shift",
+      "range",
+      "Plant",
+      "Severity",
+      "line",
+      "category",
+      "Line",
+      "SEVERITY",
+      "Product",
+      "order",
+      "status"
+    ],
+    "apis": [],
+    "js_size": 790032
+  },
+  "vision_ai_inspection": {
+    "nav": [],
+    "card_titles": [
+      "Did the corrective action work?",
+      "Costliest defects",
+      "Monitoring rules",
+      "With margin",
+      "Alerts & Early Actions",
+      "Minor",
+      "Reason",
+      "Share of defects",
+      "Consumption",
+      "Observed",
+      "Vision inference records",
+      "Search quality",
+      "Queue +",
+      "Cleaned & Integrated Data",
+      "Data the agent must be fed"
+    ],
+    "units": [],
+    "charts": [
+      "Heatmap"
+    ],
+    "filters": [
+      "Status",
+      "severity",
+      "Shift",
+      "product",
+      "Product",
+      "Plant",
+      "Severity",
+      "line",
+      "plant",
+      "category",
+      "Line",
+      "shift",
+      "Order",
+      "Date",
+      "status"
+    ],
+    "apis": [
+      "/api/prod/connector",
+      "/api/prod/vision/models",
+      "/api/inspection/prerequisites",
+      "/api/workspace/inspect",
+      "/api/prod/vision/search-quality",
+      "/api/prod/admin/reload-taxonomy",
+      "/api/prod/data-quality",
+      "/api/inspection/overview/architecture",
+      "/api/health",
+      "/api/twin/status"
+    ],
+    "js_size": 353954
+  },
+  "engineering_change": {
+    "nav": [
+      "SRM",
+      "New change request",
+      "Administration",
+      "BOM Agent",
+      "Overview",
+      "Agent studio",
+      "Layers",
+      "Platform Architecture",
+      "DMS",
+      "WMS"
+    ],
+    "card_titles": [
+      "AI Copilot",
+      "Training Duration per Operator",
+      "BOM & Equipment",
+      "fact_engineering_change",
+      "TR06: Post Cut-In Defect Shift",
+      "Pipeline Orchestration",
+      "BOM",
+      "Platform Architecture",
+      "Old Unit Cost (\u20b9 INR)",
+      "Manufacturing Data Sources",
+      "MISSED APPROVAL DEADLINES",
+      "Blueprint Diff",
+      "Process Parameters & Critical Delta",
+      "Delay Prediction",
+      "Change Register"
+    ],
+    "units": [
+      "mm",
+      "\u00b10.02 mm",
+      "W peak",
+      "s",
+      "operators",
+      "\u00b12 N",
+      "mm/s",
+      "units"
+    ],
+    "charts": [
+      "BarChart",
+      "Heatmap",
+      "Gantt"
+    ],
+    "filters": [
+      "Status",
+      "date",
+      "STATUS",
+      "Shift",
+      "range",
+      "Product",
+      "Plant",
+      "Severity",
+      "line",
+      "Supplier",
+      "plant",
+      "DATE",
+      "Line",
+      "category",
+      "shift",
+      "supplier",
+      "order",
+      "status"
+    ],
+    "apis": [
+      "/api/data-sources",
+      "/api/admin/users",
+      "/api/notifications/read-all",
+      "/api/bom/confirm-item-intelligence",
+      "/api/lineage/graph",
+      "/api/ai-approvals",
+      "/api/chat",
+      "/api/kpis",
+      "/api/admin/ai-policy",
+      "/api/agents"
+    ],
+    "js_size": 1216114
+  },
+  "product_traceability": {
+    "nav": [
+      "MES & WMS",
+      "APIS & ETL",
+      "DATA & BUSINESS",
+      "Auditable Lineage Log",
+      "CONSUMPTION & BI",
+      "Administration",
+      "WAREHOUSE",
+      "ERP & MES",
+      "Platform Architecture",
+      "EXCEL & FILES"
+    ],
+    "card_titles": [
+      "ERP & MES Enterprise Connector",
+      "AI Copilot",
+      "Master Dimension Tables",
+      "Technical Operations Notice",
+      "Cryptographic Commitment",
+      "Quarantine Release Trigger",
+      "Lineage DAG Ingestion",
+      "Zero Silent Inference",
+      "In-Transit Carrier Intercept",
+      "Cells Contained Before SMT",
+      "Shop Lines & Inventory Scans",
+      "Auditable Lineage Log",
+      "Primary Fact Tables",
+      "Component Lot",
+      "Station Validation"
+    ],
+    "units": [],
+    "charts": [
+      "LineChart",
+      "BarChart",
+      "AreaChart",
+      "ScatterChart",
+      "ComposedChart",
+      "Heatmap"
+    ],
+    "filters": [
+      "Status",
+      "Shift",
+      "range",
+      "Severity",
+      "line",
+      "Category",
+      "category",
+      "DATE",
+      "Line",
+      "Supplier",
+      "PLANT",
+      "supplier",
+      "order",
+      "status"
+    ],
+    "apis": [
+      "https://api.supplier-portal.org/v2/coa/stream"
+    ],
+    "js_size": 1766977
+  },
+  "inventory_management": {
+    "nav": [],
+    "card_titles": [],
+    "units": [],
+    "charts": [
+      "LineChart",
+      "BarChart",
+      "AreaChart",
+      "PieChart",
+      "ComposedChart",
+      "Heatmap"
+    ],
+    "filters": [],
+    "apis": [],
+    "js_size": 477826
+  },
+  "supplier_performance": {
+    "nav": [],
+    "card_titles": [],
+    "units": [],
+    "charts": [
+      "LineChart",
+      "BarChart",
+      "AreaChart"
+    ],
+    "filters": [],
+    "apis": [],
+    "js_size": 404615
+  },
+  "agentic_rfq": {
+    "nav": [
+      "Reject",
+      "Data Connectors",
+      "Home",
+      "Request clarification",
+      "Quotes",
+      "Sourcing & RFQ",
+      "Requests & Stock",
+      "Approvals",
+      "Dashboard",
+      "Approve"
+    ],
+    "card_titles": [
+      "Quoted lead time",
+      "Risk tier",
+      "Data connectors",
+      "Partially responded",
+      "Shortages",
+      "Changes requested",
+      "Procurement Manager",
+      "Material fit & compliance",
+      "Select a message",
+      "DATA & BUSINESS LAYER",
+      "EXTRACT, VERIFY & LOAD",
+      "Supplier risk",
+      "Email",
+      "No requests in this slice",
+      "CONSUMPTION"
+    ],
+    "units": [
+      "requests",
+      "quotes",
+      "POs",
+      "RFQs",
+      "lines"
+    ],
+    "charts": [],
+    "filters": [
+      "Status",
+      "date",
+      "Shift",
+      "range",
+      "Plant",
+      "line",
+      "Supplier",
+      "category",
+      "plant",
+      "Category",
+      "Product",
+      "Order",
+      "supplier",
+      "Date",
+      "status"
+    ],
+    "apis": [],
+    "js_size": 356975
+  },
+  "logistics_dispatch": {
+    "nav": [],
+    "card_titles": [],
+    "units": [],
+    "charts": [
+      "Heatmap"
+    ],
+    "filters": [],
+    "apis": [],
+    "js_size": 1398191
+  },
+  "energy_management": {
+    "nav": [
+      "Investigation Centre",
+      "Production Analytics",
+      "Home",
+      "Data Connectors",
+      "AI Assistant",
+      "Daily Operations",
+      "Dashboard",
+      "Energy Analytics"
+    ],
+    "card_titles": [
+      "Investigation Centre",
+      "FastAPI backend connected via proxy",
+      "Production Analytics",
+      "Home",
+      "Data Connectors",
+      "AI Assistant",
+      "Daily Operations",
+      "Dashboard",
+      "Energy Analytics",
+      "Checking backend connection..."
+    ],
+    "units": [],
+    "charts": [
+      "BarChart",
+      "AreaChart"
+    ],
+    "filters": [
+      "Shift",
+      "line",
+      "status"
+    ],
+    "apis": [
+      "/api/health"
+    ],
+    "js_size": 268659
+  },
+  "ehs_safety": {
+    "nav": [
+      "Command Center",
+      "The whole table",
+      "Operations",
+      "Assistant & Data",
+      "Events",
+      "Workforce & Shifts",
+      "Maintenance & Safety",
+      "Training Matrix",
+      "Attendance",
+      "Machine"
+    ],
+    "card_titles": [
+      "Command Center",
+      "Overtime Hours",
+      "Server version",
+      "SMOKE & FIRE MONITORING",
+      "LOW",
+      "Training Matrix",
+      "Plant Area",
+      "Skill Gap",
+      "Hazard Category",
+      "P1 Critical",
+      "Workforce Skill Match Distribution",
+      "Confirmed Detection",
+      "In Progress / Planned",
+      "Month",
+      "Actual Work Hours"
+    ],
+    "units": [
+      "hrs",
+      "orders",
+      "min",
+      "events",
+      "logs",
+      "actions",
+      "records",
+      "hours"
+    ],
+    "charts": [
+      "Heatmap"
+    ],
+    "filters": [
+      "severity",
+      "Shift",
+      "range",
+      "status",
+      "Plant",
+      "line",
+      "Category",
+      "shift",
+      "Status"
+    ],
+    "apis": [
+      "/api/v1/connectors/primary",
+      "/api/v1/detection/library",
+      "/api/v1/connectors/test",
+      "/api/v1/notifications/read",
+      "/api/v1/detection/models/status",
+      "/api/v1/detection/upload",
+      "/api/v1/connectors/health",
+      "/api/v1/ai/query",
+      "/api/v1/connectors/drivers/status",
+      "/api/v1/analytics/maintenance/summary"
+    ],
+    "js_size": 791903
+  },
+  "workforce_management": {
+    "nav": [],
+    "card_titles": [],
+    "units": [],
+    "charts": [
+      "LineChart",
+      "AreaChart",
+      "PieChart",
+      "ComposedChart"
+    ],
+    "filters": [],
+    "apis": [],
+    "js_size": 288525
+  },
+  "manufacturing_cost": {
+    "nav": [
+      "Connector Framework",
+      "Deterministic Engine",
+      "FastAPI",
+      "Synonym Mapping",
+      "Product Analysis",
+      "Recharts",
+      "To Component Page",
+      "Coins",
+      "Data Normalization",
+      "Python Math"
+    ],
+    "card_titles": [
+      "Last 6 Months",
+      "Multipart Stream",
+      "Action Parse",
+      "Dictionary Match",
+      "August 2026",
+      "Synonym Mapping",
+      "Data Ingestion",
+      "Product Analysis",
+      "Incremental Quality Variance",
+      "Unit Cost Calculation",
+      "Oct 2026",
+      "Staging Update",
+      "Minimize chat",
+      "Reset to All Available Data",
+      "Unmapped / Auxiliary Table"
+    ],
+    "units": [
+      "mm",
+      "%",
+      "Count",
+      "INR Cr",
+      "Units",
+      "INR / Unit",
+      "Hours"
+    ],
+    "charts": [
+      "LineChart",
+      "BarChart",
+      "Heatmap"
+    ],
+    "filters": [
+      "LINE",
+      "Status",
+      "date",
+      "Shift",
+      "product",
+      "PRODUCT",
+      "Plant",
+      "CATEGORY",
+      "line",
+      "Supplier",
+      "Category",
+      "plant",
+      "Line",
+      "PLANT",
+      "Product",
+      "supplier",
+      "Range",
+      "status"
+    ],
+    "apis": [],
+    "js_size": 1472005
+  },
+  "customer_order": {
+    "nav": [],
+    "card_titles": [
+      "Assessments",
+      "Settings",
+      "Reports",
+      "Home",
+      "Orders",
+      "Agent Control",
+      "Start new conversation",
+      "My Work",
+      "Overview",
+      "Close chat",
+      "Monitoring",
+      "Connectors",
+      "Log out",
+      "Send message"
+    ],
+    "units": [],
+    "charts": [],
+    "filters": [
+      "Date",
+      "status"
+    ],
+    "apis": [
+      "/api/auth/me",
+      "/api/auth/login",
+      "/api/auth/department-mappings",
+      "/api/agent/chat",
+      "/api/auth/refresh",
+      "/api/auth/logout",
+      "/api/auth/users",
+      "/api/conversations",
+      "/api/auth/department-contacts"
+    ],
+    "js_size": 102120
+  },
+  "digital_twin": {
+    "nav": [
+      "Insights & actions",
+      "Data integration",
+      "One central agent",
+      "Validation & rules"
+    ],
+    "card_titles": [
+      "Loading recommendation",
+      "Filter",
+      "Open in the 3D twin",
+      "Loading audit log",
+      "Reports & Human Approval",
+      "OEE",
+      "Recommendation",
+      "Digital Twin Agent",
+      "In maintenance",
+      "Architecture & Data Flow",
+      "ACTUAL",
+      "Digital Twin \u2013 Plant Campus",
+      "Work order",
+      "Assembly Lines",
+      "Target vs actual by line"
+    ],
+    "units": [],
+    "charts": [
+      "LineChart",
+      "BarChart",
+      "AreaChart",
+      "PieChart",
+      "ScatterChart",
+      "ComposedChart"
+    ],
+    "filters": [
+      "Status",
+      "date",
+      "severity",
+      "Shift",
+      "range",
+      "Plant",
+      "Severity",
+      "line",
+      "Category",
+      "category",
+      "plant",
+      "Line",
+      "order",
+      "status"
+    ],
+    "apis": [],
+    "js_size": 1660284
+  }
+}

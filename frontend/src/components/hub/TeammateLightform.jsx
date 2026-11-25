@@ -14,7 +14,8 @@ export default function TeammateLightform({
   onSaveUrl,
   onRemoveUrl,
   onSelectAgent,
-  onLaunchApp
+  onLaunchApp,
+  visible = false
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedAgentId, setSelectedAgentId] = useState('');
@@ -98,6 +99,8 @@ export default function TeammateLightform({
   };
 
   const linkedCount = Object.keys(customUrls).length;
+
+  if (!visible) return null;
 
   return (
     <div className="teammate-lightform-container">

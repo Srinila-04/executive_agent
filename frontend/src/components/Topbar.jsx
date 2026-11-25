@@ -241,7 +241,7 @@ export default function Topbar({
       case 'settings':
         return {
           title: 'Executive Admin & Multi-State Plant Settings',
-          sub: 'Corporate Facilities across Tamil Nadu, Maharashtra, Gujarat & Global'
+          sub: 'Corporate Facilities across Tamil Nadu (Chennai) & Karnataka (Bengaluru)'
         };
       default:
         return { title: 'Enterprise Portal', sub: 'Smart Manufacturing Platform' };
